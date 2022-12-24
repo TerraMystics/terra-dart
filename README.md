@@ -123,4 +123,4 @@ If you need to integrate with an external payment system or gateway like Apple/G
 
 This software is licensed under the MIT license. See [LICENSE](./LICENSE) for full disclosure.
 
-© 2022 TerraRebels.
+© 2022 TerraMystics.
