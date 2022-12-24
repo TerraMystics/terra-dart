@@ -1,0 +1,23 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+LightClientValidator _$LightClientValidatorFromJson(
+        Map<String, dynamic> json) =>
+    LightClientValidator(
+      json['total_voting_power'] as String,
+      (json['validators'] as List<dynamic>)
+          .map((e) =>
+              LightClientValidatorValue.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      LightClientValidatorValue.fromJson(
+          json['proposer'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$LightClientValidatorToJson(
+        LightClientValidator instance) =>
+    <String, dynamic>{
+      'total_voting_power': instance.total_voting_power,
+      'validators': instance.validators,
+      'proposer': instance.proposer,
+    };

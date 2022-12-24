@@ -1,0 +1,15 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'BlockTxs.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+BlockTxs _$BlockTxsFromJson(Map<String, dynamic> json) => BlockTxs(
+      (json['txs'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$BlockTxsToJson(BlockTxs instance) => <String, dynamic>{
+      'txs': instance.txs,
+    };

@@ -1,0 +1,15 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+TreasuryTaxSeignorage _$TreasuryTaxSeignorageFromJson(
+        Map<String, dynamic> json) =>
+    TreasuryTaxSeignorage(
+      json['seigniorage_proceeds'] as String,
+    );
+
+Map<String, dynamic> _$TreasuryTaxSeignorageToJson(
+        TreasuryTaxSeignorage instance) =>
+    <String, dynamic>{
+      'seigniorage_proceeds': instance.seigniorage_proceeds,
+    };

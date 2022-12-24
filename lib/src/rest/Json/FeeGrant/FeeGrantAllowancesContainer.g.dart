@@ -1,0 +1,27 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'FeeGrantAllowancesContainer.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+FeeGrantAllowancesContainer _$FeeGrantAllowancesContainerFromJson(
+        Map<String, dynamic> json) =>
+    FeeGrantAllowancesContainer(
+      (json['allowances'] as List<dynamic>)
+          .map(
+              (e) => FeeGrantAllowancesJson.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      (json['allowance'] as List<dynamic>)
+          .map(
+              (e) => FeeGrantAllowancesJson.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$FeeGrantAllowancesContainerToJson(
+        FeeGrantAllowancesContainer instance) =>
+    <String, dynamic>{
+      'allowances': instance.allowances,
+      'allowance': instance.allowance,
+    };

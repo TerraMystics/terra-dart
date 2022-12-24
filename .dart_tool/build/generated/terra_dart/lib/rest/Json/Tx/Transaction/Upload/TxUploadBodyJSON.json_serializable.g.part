@@ -1,0 +1,19 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+TxUploadBodyJSON _$TxUploadBodyJSONFromJson(Map<String, dynamic> json) =>
+    TxUploadBodyJSON(
+      json['memo'] as String,
+      (json['timeout_height'] as num).toDouble(),
+      (json['messages'] as List<dynamic>)
+          .map((e) => TxUploadMessageData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$TxUploadBodyJSONToJson(TxUploadBodyJSON instance) =>
+    <String, dynamic>{
+      'memo': instance.memo,
+      'timeout_height': instance.timeout_height,
+      'messages': instance.messages,
+    };

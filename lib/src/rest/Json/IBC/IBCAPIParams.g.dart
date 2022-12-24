@@ -1,0 +1,18 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'IBCAPIParams.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+IBCAPIParams _$IBCAPIParamsFromJson(Map<String, dynamic> json) => IBCAPIParams(
+      (json['allowed_clients'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+    );
+
+Map<String, dynamic> _$IBCAPIParamsToJson(IBCAPIParams instance) =>
+    <String, dynamic>{
+      'allowed_clients': instance.allowed_clients,
+    };

@@ -1,0 +1,22 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'RedelegationEntryJSON.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+RedelegationEntryJSON _$RedelegationEntryJSONFromJson(
+        Map<String, dynamic> json) =>
+    RedelegationEntryJSON(
+      UnbondingDelegationEntryValueCommonArgsJSON.fromJson(
+          json['redelegation_entry'] as Map<String, dynamic>),
+      json['balance'] as String,
+    );
+
+Map<String, dynamic> _$RedelegationEntryJSONToJson(
+        RedelegationEntryJSON instance) =>
+    <String, dynamic>{
+      'redelegation_entry': instance.redelegation_entry,
+      'balance': instance.balance,
+    };

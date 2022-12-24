@@ -1,0 +1,22 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'IBCApiConsensusState.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+IBCApiConsensusState _$IBCApiConsensusStateFromJson(
+        Map<String, dynamic> json) =>
+    IBCApiConsensusState(
+      HeightJSON.fromJson(json['height'] as Map<String, dynamic>),
+      ConsensusStateJSON.fromJson(
+          json['consensus_state'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$IBCApiConsensusStateToJson(
+        IBCApiConsensusState instance) =>
+    <String, dynamic>{
+      'height': instance.height,
+      'consensus_state': instance.consensus_state,
+    };

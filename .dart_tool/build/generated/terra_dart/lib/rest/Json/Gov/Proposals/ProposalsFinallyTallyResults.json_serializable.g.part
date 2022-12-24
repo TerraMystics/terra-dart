@@ -1,0 +1,21 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ProposalsFinallyTallyResults _$ProposalsFinallyTallyResultsFromJson(
+        Map<String, dynamic> json) =>
+    ProposalsFinallyTallyResults(
+      json['yes'] as String,
+      json['abstain'] as String,
+      json['no'] as String,
+      json['no_with_veto'] as String,
+    );
+
+Map<String, dynamic> _$ProposalsFinallyTallyResultsToJson(
+        ProposalsFinallyTallyResults instance) =>
+    <String, dynamic>{
+      'yes': instance.yes,
+      'abstain': instance.abstain,
+      'no': instance.no,
+      'no_with_veto': instance.no_with_veto,
+    };

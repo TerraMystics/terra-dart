@@ -1,0 +1,18 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'TxBitArray.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+TxBitArray _$TxBitArrayFromJson(Map<String, dynamic> json) => TxBitArray(
+      (json['extra_bits_stored'] as num).toDouble(),
+      json['elems'] as String,
+    );
+
+Map<String, dynamic> _$TxBitArrayToJson(TxBitArray instance) =>
+    <String, dynamic>{
+      'extra_bits_stored': instance.extra_bits_stored,
+      'elems': instance.elems,
+    };

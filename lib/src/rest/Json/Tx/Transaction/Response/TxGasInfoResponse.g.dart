@@ -1,0 +1,19 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'TxGasInfoResponse.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+TxGasInfoResponse _$TxGasInfoResponseFromJson(Map<String, dynamic> json) =>
+    TxGasInfoResponse(
+      json['gas_used'] as String,
+      json['gas_wanted'] as String,
+    );
+
+Map<String, dynamic> _$TxGasInfoResponseToJson(TxGasInfoResponse instance) =>
+    <String, dynamic>{
+      'gas_used': instance.gas_used,
+      'gas_wanted': instance.gas_wanted,
+    };

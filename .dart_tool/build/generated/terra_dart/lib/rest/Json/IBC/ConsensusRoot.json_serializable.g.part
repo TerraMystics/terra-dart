@@ -1,0 +1,13 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ConsensusRoot _$ConsensusRootFromJson(Map<String, dynamic> json) =>
+    ConsensusRoot(
+      json['hash'] as String,
+    );
+
+Map<String, dynamic> _$ConsensusRootToJson(ConsensusRoot instance) =>
+    <String, dynamic>{
+      'hash': instance.hash,
+    };

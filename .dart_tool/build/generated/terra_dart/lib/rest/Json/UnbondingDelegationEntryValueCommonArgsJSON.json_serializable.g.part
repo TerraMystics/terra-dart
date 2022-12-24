@@ -1,0 +1,22 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+UnbondingDelegationEntryValueCommonArgsJSON
+    _$UnbondingDelegationEntryValueCommonArgsJSONFromJson(
+            Map<String, dynamic> json) =>
+        UnbondingDelegationEntryValueCommonArgsJSON(
+          json['initial_balance'] as String,
+          json['balance'] as String,
+          json['creation_height'] as String,
+          DateTime.parse(json['completion_time'] as String),
+        );
+
+Map<String, dynamic> _$UnbondingDelegationEntryValueCommonArgsJSONToJson(
+        UnbondingDelegationEntryValueCommonArgsJSON instance) =>
+    <String, dynamic>{
+      'initial_balance': instance.initial_balance,
+      'balance': instance.balance,
+      'creation_height': instance.creation_height,
+      'completion_time': instance.completion_time.toIso8601String(),
+    };

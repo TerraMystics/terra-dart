@@ -1,0 +1,21 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+StakingApiParams _$StakingApiParamsFromJson(Map<String, dynamic> json) =>
+    StakingApiParams(
+      json['unbonding_time'] as String,
+      json['max_validators'] as int,
+      json['max_entries'] as int,
+      json['historical_entries'] as int,
+      json['bond_denom'] as String,
+    );
+
+Map<String, dynamic> _$StakingApiParamsToJson(StakingApiParams instance) =>
+    <String, dynamic>{
+      'unbonding_time': instance.unbonding_time,
+      'max_validators': instance.max_validators,
+      'max_entries': instance.max_entries,
+      'historical_entries': instance.historical_entries,
+      'bond_denom': instance.bond_denom,
+    };

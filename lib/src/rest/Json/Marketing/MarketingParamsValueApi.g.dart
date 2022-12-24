@@ -1,0 +1,23 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'MarketingParamsValueApi.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+MarketingParamsValueApi _$MarketingParamsValueApiFromJson(
+        Map<String, dynamic> json) =>
+    MarketingParamsValueApi(
+      json['base_pool'] as String,
+      json['pool_recovery_period'] as String,
+      json['min_stability_spread'] as String,
+    );
+
+Map<String, dynamic> _$MarketingParamsValueApiToJson(
+        MarketingParamsValueApi instance) =>
+    <String, dynamic>{
+      'base_pool': instance.base_pool,
+      'pool_recovery_period': instance.pool_recovery_period,
+      'min_stability_spread': instance.min_stability_spread,
+    };

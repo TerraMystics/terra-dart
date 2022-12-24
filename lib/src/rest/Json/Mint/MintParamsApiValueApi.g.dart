@@ -1,0 +1,29 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'MintParamsApiValueApi.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+MintParamsApiValueApi _$MintParamsApiValueApiFromJson(
+        Map<String, dynamic> json) =>
+    MintParamsApiValueApi(
+      json['mint_denom'] as String,
+      json['inflation_rate_change'] as String,
+      json['inflation_max'] as String,
+      json['inflation_min'] as String,
+      json['goal_bonded'] as String,
+      json['blocks_per_year'] as String,
+    );
+
+Map<String, dynamic> _$MintParamsApiValueApiToJson(
+        MintParamsApiValueApi instance) =>
+    <String, dynamic>{
+      'mint_denom': instance.mint_denom,
+      'inflation_rate_change': instance.inflation_rate_change,
+      'inflation_max': instance.inflation_max,
+      'inflation_min': instance.inflation_min,
+      'goal_bonded': instance.goal_bonded,
+      'blocks_per_year': instance.blocks_per_year,
+    };
