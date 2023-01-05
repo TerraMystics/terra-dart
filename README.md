@@ -13,13 +13,13 @@ The Official Dart SDK for the Terra Ecosystem (LUNC/USTC/LUNA2)
   <img alt="GitHub" src="https://img.shields.io/github/license/terra-money/terra.js">
   </a>
 
-  <a href="https://pub.dev/packages/terra_dart">
-  <img alt="GitHub" src="https://img.shields.io/pub/v/terra_dart">
+  <a href="https://pub.dev/packages/terra_dart_sdk">
+  <img alt="GitHub" src="https://img.shields.io/pub/v/terra_dart_sdk">
   </a>
   
   
-  <a href="https://pub.dev/packages/terra_dart">
-  <img alt="GitHub" src="https://img.shields.io/pub/likes/terra_dart?color=red">
+  <a href="https://pub.dev/packages/terra_dart_sdk">
+  <img alt="GitHub" src="https://img.shields.io/pub/likes/terra_dart_sdk?color=red">
   </a>
 </p>
 
@@ -31,7 +31,7 @@ The Official Dart SDK for the Terra Ecosystem (LUNC/USTC/LUNA2)
   ·
   <a href="https://terra-rebels.github.io/terra-sharp/TerraSharp/Documentation/html/index.html">API Reference</a>
   ·
-  <a href="https://pub.dev/packages/terra_dart">Pub Package</a>
+  <a href="https://pub.dev/packages/terra_dart_sdk">Pub Package</a>
   ·
   <a href="https://github.com/terra-rebels/terra-dart">GitHub</a>
 </p>
