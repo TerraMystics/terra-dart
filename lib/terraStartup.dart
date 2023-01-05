@@ -1,5 +1,5 @@
 import 'package:injector/injector.dart';
-import 'package:terra_dart/src/Modules/terraMainDIModule.dart';
+import 'package:terra_dart_sdk/src/Modules/terraMainDIModule.dart';
 import 'Client/Lcd/LCDDefaultConfigs.dart';
 import 'Client/Lcd/LocalTerra/localTerra.dart';
 import 'Client/Lcd/Models/LCDClientConfig.dart';

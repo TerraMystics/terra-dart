@@ -1,4 +1,4 @@
-# terra_dart_example
+# terra_dart_sdk_example
 
 A new Flutter project.
 

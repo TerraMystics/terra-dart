@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:terra_dart/terraEnvironment.dart';
-import 'package:terra_dart/terraStartup.dart';
+import 'package:terra_dart_sdk/terraEnvironment.dart';
+import 'package:terra_dart_sdk/terraStartup.dart';
 
 void main() {
   runApp(const MyApp());

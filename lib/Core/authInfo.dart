@@ -1,4 +1,4 @@
-// import 'package:terra_dart/src/Core/fee.dart';
+// import 'package:terra_dart_sdk/src/Core/fee.dart';
 
 // import '../../rest/Json/Tx/Transaction/TxAuthInfo.dart';
 // import 'modeInfo.dart';

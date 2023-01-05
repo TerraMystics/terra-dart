@@ -1,4 +1,4 @@
-// import 'package:terra_dart/src/Core/signatureV2Descriptor.dart';
+// import 'package:terra_dart_sdk/src/Core/signatureV2Descriptor.dart';
 
 // import '../../rest/Json/Tx/Transaction/TxSignerModeInfoMulti.dart';
 // import 'CompactBitArray.dart';

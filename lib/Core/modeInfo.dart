@@ -1,4 +1,4 @@
-// import 'package:terra_dart/src/Core/signatureV2Multi.dart';
+// import 'package:terra_dart_sdk/src/Core/signatureV2Multi.dart';
 
 // import '../../rest/Json/Tx/Transaction/TxSignerModeInfo.dart';
 // import 'SignatureV2Single.dart';

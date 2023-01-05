@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.terra_dart_example">
+    package="com.example.terra_dart_sdk_example">
    <application
-        android:label="terra_dart_example"
+        android:label="terra_dart_sdk_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

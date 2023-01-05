@@ -1,4 +1,4 @@
-import 'package:terra_dart/Client/Lcd/Api/slashingAPI.dart';
+import 'package:terra_dart_sdk/Client/Lcd/Api/slashingAPI.dart';
 
 import '../../Client/Lcd/Api/authAPI.dart';
 import '../../Client/Lcd/Api/authzAPI.dart';

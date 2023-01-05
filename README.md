@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-    <a href="https://www.terrarebels.net/"><img src="https://github.com/terra-rebels/terra-dart/blob/main/Dart.svg" align="center" width=350/></a>
+    <a href="https://github.com/TerraMystics"><img src="https://github.com/TerraMystics/terra-dart/blob/main/Dart.svg" align="center" width=350/></a>
 </p>
 
 <p align="center">
@@ -9,7 +9,7 @@ The Official Dart SDK for the Terra Ecosystem (LUNC/USTC/LUNA2)
 <br/>
 
 <p align="center">
-  <a href="https://github.com/terra-rebels/terra-dart/blob/main/LICENSE.md">
+  <a href="https://github.com/TerraMystics/terra-dart/blob/main/LICENSE.md">
   <img alt="GitHub" src="https://img.shields.io/github/license/terra-money/terra.js">
   </a>
 
@@ -27,13 +27,13 @@ The Official Dart SDK for the Terra Ecosystem (LUNC/USTC/LUNA2)
   <a href="https://docs.terra.money/"><strong>Explore the Docs »</strong></a>
   <br />
   <br/>
-  <a href="https://github.com/terra-rebels/terra-dart/tree/main/example/terra_dart_example">Example App</a>
+  <a href="https://github.com/TerraMystics/terra-dart/tree/main/example/terra_dart_example">Example App</a>
   ·
-  <a href="https://terra-rebels.github.io/terra-sharp/TerraSharp/Documentation/html/index.html">API Reference</a>
+  <a href="https://github.com/TerraMystics/terra-dart/blob/main/README.md">API Reference</a>
   ·
   <a href="https://pub.dev/packages/terra_dart_sdk">Pub Package</a>
   ·
-  <a href="https://github.com/terra-rebels/terra-dart">GitHub</a>
+  <a href="https://github.com/TerraMystics/terra-dart">GitHub</a>
 </p>
 
 TerraDart is a Dart SDK for writing applications that interact with the Terra blockchain from either the Web or Mobile, or flutter environments and provides simple abstractions over core data structures, serialization, key management, and API request generation.
@@ -57,26 +57,30 @@ terra_dart: latest
 ```
 
 Inside your Startup Class (Where you initialize your application), please call the following method, and configure your environment
+
 ```dart
 // Here we're targeting the Classic Blockchain
 TerraStartup.initializeKernel(TerraEnvironment.classic);
 ```
-That's it! Now you're ready to start communicating with the blockchain! 
+
+That's it! Now you're ready to start communicating with the blockchain!
 
 ## Usage
 
 TerraDart can be used for Mobile & Web Developers. Supports all Flutter & Dart Environments.
 
 ### Getting Blockchain data
+
 :exclamation: TerraDart can connect to both the terra-classic (LUNC/USTC) and LUNA2 networks. If you want to communicate with the classic chain, you have to set your Enviornment on **TerraStartup.InitializeKernel** to **TerraEnvironment.Classic**.
 
 Below we're going to pull balance information on a sample wallet.
+
 ```dart
 void fetchBalanceInformation() async {
-    
+
     //fetch the LCDClient from the Kernel
     var lcd = TerraStartup.getLCDClient();
-    
+
     // get the current balance of "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v"
     var balance = await lcd.bank.getBalance("terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v");
     print(balance);
@@ -85,14 +89,14 @@ void fetchBalanceInformation() async {
 
 ### Broadcasting transactions
 
-First, [get](https://faucet.terra.money/) some testnet tokens for "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", or use [LocalTerra](https://github.com/terra-rebels/LocalTerra).
+First, [get](https://faucet.terra.money/) some testnet tokens for "terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v", or use [LocalTerra](https://github.com/TerraMystics/LocalTerra).
 
 ```dart
 void broadcastTransaction() async {
-    
+
     //fetch the LCDClient from the Kernel
     var lcd = TerraStartup.getLCDClient();
-    
+
     // create a key out of a mnemonic
     var mk = MnemonicKey("notice oak worry limit wrap speak medal online prefer cluster roof addict wrist behave treat actual wasp year salad speed social layer crew genius");
 
@@ -105,19 +109,19 @@ void broadcastTransaction() async {
 
     // Prepare & Configure your wallet
     var wallet = lcd.createWallet(PreconfiguredWallets.TEST_NET_WALLET, mk);
-     
+
     // Prepare Transaction for Upload
     var tx = await wallet.createTxAndSignTx([send])
 
     // Broadcast the transaction
-    var broadcast = await wallet.broadcastTx.broadcast(tx);     
+    var broadcast = await wallet.broadcastTx.broadcast(tx);
     print("Uploaded Tx Hash ${broadcast.txhash}");
 }
 ```
 
 ## Require Payment Integration for LUNC/USTC?
 
-If you need to integrate with an external payment system or gateway like Apple/Google in app purchases, please make sure to install the [following library](https://github.com/terra-rebels/terra-dart-payments) in your project.
+If you need to integrate with an external payment system or gateway like Apple/Google in app purchases, please make sure to install the [following library](https://github.com/TerraMystics/terra-dart-payments) in your project.
 
 ## License
 

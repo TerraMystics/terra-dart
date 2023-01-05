@@ -28,7 +28,7 @@
 //         }
 //     }
 
-import 'package:terra_dart/Core/signatureV2Descriptor.dart';
+import 'package:terra_dart_sdk/Core/signatureV2Descriptor.dart';
 
 import '../src/proto/terra/keys/KeysDto.dart';
 

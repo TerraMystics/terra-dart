@@ -568,10 +568,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
-  terra_dart:
+  terra_dart_sdk:
     dependency: "direct main"
     description:
-      name: terra_dart
+      name: terra_dart_sdk
       sha256: "8cc198cedf01668151cea0db43d6d5c2f4afe7f1fa9a81a0713fdcfb813fb59a"
       url: "https://pub.dev"
     source: hosted

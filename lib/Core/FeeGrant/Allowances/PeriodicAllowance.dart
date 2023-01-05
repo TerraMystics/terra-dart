@@ -1,5 +1,5 @@
-//   import 'package:terra_dart/src/Core/FeeGrant/Allowances/BasicAllowance.dart';
-// import 'package:terra_dart/src/Core/coin.dart';
+//   import 'package:terra_dart_sdk/src/Core/FeeGrant/Allowances/BasicAllowance.dart';
+// import 'package:terra_dart_sdk/src/Core/coin.dart';
 
 // class PeriodicAllowance
 //     {

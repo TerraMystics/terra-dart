@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:terra_dart/src/Configuration/Environment/TerraEnvironment.dart';
-import 'package:terra_dart/src/Constants/preconfiguredWallets.dart';
-import 'package:terra_dart/src/TerraStartup.dart';
-import 'package:terra_dart/terra_dart.dart';
+import 'package:terra_dart_sdk/src/Configuration/Environment/TerraEnvironment.dart';
+import 'package:terra_dart_sdk/src/Constants/preconfiguredWallets.dart';
+import 'package:terra_dart_sdk/src/TerraStartup.dart';
+import 'package:terra_dart_sdk/terra_dart_sdk.dart';
 import 'package:test/test.dart';
 
 void main() {
