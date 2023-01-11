@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:terra_dart_keys/keys/constants/cosmosKeys.dart';
+import 'package:terra_dart_keys/keys/constants/tendermintKeys.dart';
 
 import '../../src/rest/Json/Staking/ValConsPublicKeyCommonArgsJSON.dart';
-import 'Constants/CosmosKeys.dart';
-import 'Constants/TendermintKeys.dart';
 
 class ValConsKey {
   final String key;

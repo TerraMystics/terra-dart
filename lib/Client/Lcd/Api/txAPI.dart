@@ -13,7 +13,7 @@ class TxAPI extends BaseAPI {
     var rootPath =
         "${TerraClientConfiguration.blockchainResourcePath}${CosmosBaseConstants.COSMOS_TX_TXS}/$txHash";
 
-    print("HASH $rootPath");
+    print("HASH $txHash");
     var response = await apiRequester.getAsync<TxContainerJSON>(rootPath);
     if (response.successful!) {
       var result = TxContainerJSON.fromJson(response.result!);

@@ -63,7 +63,7 @@
     },
     {
       "name": "buffer",
-      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/buffer-1.1.1",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/buffer-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -146,6 +146,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "common_utils",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/common_utils-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "convert",
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/convert-3.0.2",
       "packageUri": "lib/",
@@ -164,6 +170,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "dart_bech32",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/dart_bech32-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dart_style",
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/dart_style-2.2.4",
       "packageUri": "lib/",
@@ -174,6 +186,18 @@
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/decimal-2.3.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "ecdsa",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/ecdsa-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "elliptic",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/elliptic-0.3.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "file",
@@ -332,6 +356,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "ninja_asn1",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/ninja_asn1-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "node_preamble",
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.1",
       "packageUri": "lib/",
@@ -390,6 +420,12 @@
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/pubspec_parse-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "random_string",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/random_string-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "random_string_generator",
@@ -512,6 +548,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "terra_dart_keys",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/terra_dart_keys-1.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "terra_dart_sdk_extensions",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/terra_dart_sdk_extensions-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "test",
       "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test-1.22.1",
       "packageUri": "lib/",
@@ -590,7 +638,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-01-05T11:58:25.751275Z",
+  "generated": "2023-01-10T20:51:51.519476Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }

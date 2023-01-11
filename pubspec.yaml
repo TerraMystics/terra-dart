@@ -1,11 +1,11 @@
 name: terra_dart_sdk
 description: TerraDart is the Dart Implementation of Terra.js, the TypeScript Library for developing on Terra Luna. Library For Flutter & Dart Applications
-version: 1.0.1
+version: 1.0.3
 homepage: https://github.com/TerraMystics
 repository: https://github.com/TerraMystics/terra-dart
 documentation: "https://docs.terra.money/"
 funding:
-  - https://github.com/TerraMystics
+  - https://www.buymeacoffee.com/dangenius
 platforms:
   android:
   ios:
@@ -38,6 +38,8 @@ dependencies:
   json_annotation: ^4.7.0
   random_string_generator: ^2.0.0
   pointycastle: ^3.6.2
+  terra_dart_keys: ^1.0.6
+  terra_dart_sdk_extensions: ^1.0.3
 
 dev_dependencies:
   lints: ^2.0.0

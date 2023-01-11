@@ -1,3 +1,5 @@
+import 'package:terra_dart_keys/terra_keys.dart';
+
 import 'Api/authAPI.dart';
 import 'Api/authzAPI.dart';
 import 'Api/bankAPI.dart';
@@ -58,7 +60,7 @@ class LcdClient {
       this.broadcastTx,
       this.wasm);
 
-  Wallet createWallet(String walletAddress) {
-    return Wallet(this, walletAddress, broadcastTx);
+  Wallet createWallet(Key key) {
+    return Wallet(this, key.accAddress(), broadcastTx, key);
   }
 }
