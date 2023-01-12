@@ -4,24 +4,23 @@ package ibc.core.channel.v1;
 
 option go_package = "github.com/cosmos/ibc-go/modules/core/04-channel/types";
 
-import "gogoproto/gogo.proto";
-import "ibc/core/client/v1/client.proto";
+import "google/protobuf/descriptor.proto";
 
 // Channel defines pipeline for exactly-once packet delivery between specific
 // modules on separate blockchains, which has at least one end capable of
 // sending packets and one end capable of receiving packets.
 message Channel {
-  option (gogoproto.goproto_getters) = false;
+  option (goproto_getters) = false;
 
   // current state of the channel end
   State state = 1;
   // whether the channel is ordered or unordered
   Order ordering = 2;
   // counterparty channel end
-  Counterparty counterparty = 3 [(gogoproto.nullable) = false];
+  Counterparty counterparty = 3 [(nullable) = false];
   // list of connection identifiers, in order, along which packets sent on
   // this channel will travel
-  repeated string connection_hops = 4 [(gogoproto.moretags) = "yaml:\"connection_hops\""];
+  repeated string connection_hops = 4 [(moretags) = "yaml:\"connection_hops\""];
   // opaque channel version, which is agreed upon during the handshake
   string version = 5;
 }
@@ -29,17 +28,17 @@ message Channel {
 // IdentifiedChannel defines a channel with additional port and channel
 // identifier fields.
 message IdentifiedChannel {
-  option (gogoproto.goproto_getters) = false;
+  option (goproto_getters) = false;
 
   // current state of the channel end
   State state = 1;
   // whether the channel is ordered or unordered
   Order ordering = 2;
   // counterparty channel end
-  Counterparty counterparty = 3 [(gogoproto.nullable) = false];
+  Counterparty counterparty = 3 [(nullable) = false];
   // list of connection identifiers, in order, along which packets sent on
   // this channel will travel
-  repeated string connection_hops = 4 [(gogoproto.moretags) = "yaml:\"connection_hops\""];
+  repeated string connection_hops = 4 [(moretags) = "yaml:\"connection_hops\""];
   // opaque channel version, which is agreed upon during the handshake
   string version = 5;
   // port identifier
@@ -51,68 +50,68 @@ message IdentifiedChannel {
 // State defines if a channel is in one of the following states:
 // CLOSED, INIT, TRYOPEN, OPEN or UNINITIALIZED.
 enum State {
-  option (gogoproto.goproto_enum_prefix) = false;
+  option (goproto_enum_prefix) = false;
 
   // Default State
-  STATE_UNINITIALIZED_UNSPECIFIED = 0 [(gogoproto.enumvalue_customname) = "UNINITIALIZED"];
+  STATE_UNINITIALIZED_UNSPECIFIED = 0 [(enumvalue_customname) = "UNINITIALIZED"];
   // A channel has just started the opening handshake.
-  STATE_INIT = 1 [(gogoproto.enumvalue_customname) = "INIT"];
+  STATE_INIT = 1 [(enumvalue_customname) = "INIT"];
   // A channel has acknowledged the handshake step on the counterparty chain.
-  STATE_TRYOPEN = 2 [(gogoproto.enumvalue_customname) = "TRYOPEN"];
+  STATE_TRYOPEN = 2 [(enumvalue_customname) = "TRYOPEN"];
   // A channel has completed the handshake. Open channels are
   // ready to send and receive packets.
-  STATE_OPEN = 3 [(gogoproto.enumvalue_customname) = "OPEN"];
+  STATE_OPEN = 3 [(enumvalue_customname) = "OPEN"];
   // A channel has been closed and can no longer be used to send or receive
   // packets.
-  STATE_CLOSED = 4 [(gogoproto.enumvalue_customname) = "CLOSED"];
+  STATE_CLOSED = 4 [(enumvalue_customname) = "CLOSED"];
 }
 
 // Order defines if a channel is ORDERED or UNORDERED
 enum Order {
-  option (gogoproto.goproto_enum_prefix) = false;
+  option (goproto_enum_prefix) = false;
 
   // zero-value for channel ordering
-  ORDER_NONE_UNSPECIFIED = 0 [(gogoproto.enumvalue_customname) = "NONE"];
+  ORDER_NONE_UNSPECIFIED = 0 [(enumvalue_customname) = "NONE"];
   // packets can be delivered in any order, which may differ from the order in
   // which they were sent.
-  ORDER_UNORDERED = 1 [(gogoproto.enumvalue_customname) = "UNORDERED"];
+  ORDER_UNORDERED = 1 [(enumvalue_customname) = "UNORDERED"];
   // packets are delivered exactly in the order which they were sent
-  ORDER_ORDERED = 2 [(gogoproto.enumvalue_customname) = "ORDERED"];
+  ORDER_ORDERED = 2 [(enumvalue_customname) = "ORDERED"];
 }
 
 // Counterparty defines a channel end counterparty
 message Counterparty {
-  option (gogoproto.goproto_getters) = false;
+  option (goproto_getters) = false;
 
   // port on the counterparty chain which owns the other end of the channel.
-  string port_id = 1 [(gogoproto.moretags) = "yaml:\"port_id\""];
+  string port_id = 1 [(moretags) = "yaml:\"port_id\""];
   // channel end on the counterparty chain
-  string channel_id = 2 [(gogoproto.moretags) = "yaml:\"channel_id\""];
+  string channel_id = 2 [(moretags) = "yaml:\"channel_id\""];
 }
 
 // Packet defines a type that carries data across different chains through IBC
 message Packet {
-  option (gogoproto.goproto_getters) = false;
+  option (goproto_getters) = false;
 
   // number corresponds to the order of sends and receives, where a Packet
   // with an earlier sequence number must be sent and received before a Packet
   // with a later sequence number.
   uint64 sequence = 1;
   // identifies the port on the sending chain.
-  string source_port = 2 [(gogoproto.moretags) = "yaml:\"source_port\""];
+  string source_port = 2 [(moretags) = "yaml:\"source_port\""];
   // identifies the channel end on the sending chain.
-  string source_channel = 3 [(gogoproto.moretags) = "yaml:\"source_channel\""];
+  string source_channel = 3 [(moretags) = "yaml:\"source_channel\""];
   // identifies the port on the receiving chain.
-  string destination_port = 4 [(gogoproto.moretags) = "yaml:\"destination_port\""];
+  string destination_port = 4 [(moretags) = "yaml:\"destination_port\""];
   // identifies the channel end on the receiving chain.
-  string destination_channel = 5 [(gogoproto.moretags) = "yaml:\"destination_channel\""];
+  string destination_channel = 5 [(moretags) = "yaml:\"destination_channel\""];
   // actual opaque bytes transferred directly to the application module
   bytes data = 6;
   // block height after which the packet times out
-  ibc.core.client.v1.Height timeout_height = 7
-      [(gogoproto.moretags) = "yaml:\"timeout_height\"", (gogoproto.nullable) = false];
+  Height timeout_height = 7
+      [(moretags) = "yaml:\"timeout_height\"", (nullable) = false];
   // block timestamp (in nanoseconds) after which the packet times out
-  uint64 timeout_timestamp = 8 [(gogoproto.moretags) = "yaml:\"timeout_timestamp\""];
+  uint64 timeout_timestamp = 8 [(moretags) = "yaml:\"timeout_timestamp\""];
 }
 
 // PacketState defines the generic type necessary to retrieve and store
@@ -120,12 +119,12 @@ message Packet {
 // Caller is responsible for knowing the context necessary to interpret this
 // state as a commitment, acknowledgement, or a receipt.
 message PacketState {
-  option (gogoproto.goproto_getters) = false;
+  option (goproto_getters) = false;
 
   // channel port identifier.
-  string port_id = 1 [(gogoproto.moretags) = "yaml:\"port_id\""];
+  string port_id = 1 [(moretags) = "yaml:\"port_id\""];
   // channel unique identifier.
-  string channel_id = 2 [(gogoproto.moretags) = "yaml:\"channel_id\""];
+  string channel_id = 2 [(moretags) = "yaml:\"channel_id\""];
   // packet sequence.
   uint64 sequence = 3;
   // embedded data that represents packet state.
@@ -145,4 +144,127 @@ message Acknowledgement {
     bytes  result = 21;
     string error  = 22;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+message Height{}
+
+extend google.protobuf.EnumOptions {
+	optional bool goproto_enum_prefix = 62001;
+	optional bool goproto_enum_stringer = 62021;
+	optional bool enum_stringer = 62022;
+	optional string enum_customname = 62023;
+	optional bool enumdecl = 62024;
+}
+
+extend google.protobuf.EnumValueOptions {
+	optional string enumvalue_customname = 66001;
+}
+
+extend google.protobuf.FileOptions {
+	optional bool goproto_getters_all = 63001;
+	optional bool goproto_enum_prefix_all = 63002;
+	optional bool goproto_stringer_all = 63003;
+	optional bool verbose_equal_all = 63004;
+	optional bool face_all = 63005;
+	optional bool gostring_all = 63006;
+	optional bool populate_all = 63007;
+	optional bool stringer_all = 63008;
+	optional bool onlyone_all = 63009;
+
+	optional bool equal_all = 63013;
+	optional bool description_all = 63014;
+	optional bool testgen_all = 63015;
+	optional bool benchgen_all = 63016;
+	optional bool marshaler_all = 63017;
+	optional bool unmarshaler_all = 63018;
+	optional bool stable_marshaler_all = 63019;
+
+	optional bool sizer_all = 63020;
+
+	optional bool goproto_enum_stringer_all = 63021;
+	optional bool enum_stringer_all = 63022;
+
+	optional bool unsafe_marshaler_all = 63023;
+	optional bool unsafe_unmarshaler_all = 63024;
+
+	optional bool goproto_extensions_map_all = 63025;
+	optional bool goproto_unrecognized_all = 63026;
+	optional bool gogoproto_import = 63027;
+	optional bool protosizer_all = 63028;
+	optional bool compare_all = 63029;
+    optional bool typedecl_all = 63030;
+    optional bool enumdecl_all = 63031;
+
+	optional bool goproto_registration = 63032;
+	optional bool messagename_all = 63033;
+
+	optional bool goproto_sizecache_all = 63034;
+	optional bool goproto_unkeyed_all = 63035;
+}
+
+extend google.protobuf.MessageOptions {
+	optional bool goproto_getters = 64001;
+	optional bool goproto_stringer = 64003;
+	optional bool verbose_equal = 64004;
+	optional bool face = 64005;
+	optional bool gostring = 64006;
+	optional bool populate = 64007;
+	optional bool stringer = 67008;
+	optional bool onlyone = 64009;
+
+	optional bool equal = 64013;
+	optional bool description = 64014;
+	optional bool testgen = 64015;
+	optional bool benchgen = 64016;
+	optional bool marshaler = 64017;
+	optional bool unmarshaler = 64018;
+	optional bool stable_marshaler = 64019;
+
+	optional bool sizer = 64020;
+
+	optional bool unsafe_marshaler = 64023;
+	optional bool unsafe_unmarshaler = 64024;
+
+	optional bool goproto_extensions_map = 64025;
+	optional bool goproto_unrecognized = 64026;
+
+	optional bool protosizer = 64028;
+	optional bool compare = 64029;
+
+	optional bool typedecl = 64030;
+
+	optional bool messagename = 64033;
+
+	optional bool goproto_sizecache = 64034;
+	optional bool goproto_unkeyed = 64035;
+}
+
+extend google.protobuf.FieldOptions {
+	optional bool nullable = 65001;
+	optional bool embed = 65002;
+	optional string customtype = 65003;
+	optional string customname = 65004;
+	optional string jsontag = 65005;
+	optional string moretags = 65006;
+	optional string casttype = 65007;
+	optional string castkey = 65008;
+	optional string castvalue = 65009;
+
+	optional bool stdtime = 65010;
+	optional bool stdduration = 65011;
+	optional bool wktpointer = 65012;
+
+	optional string castrepeated = 65013;
 }
