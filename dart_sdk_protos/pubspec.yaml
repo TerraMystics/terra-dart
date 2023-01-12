@@ -1,6 +1,6 @@
 name: terra_dart_sdk_protos
 description: Protobufs library for the terra ecosystem. Manages serialisation/deserialisation & api
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/TerraMystics
 repository: https://github.com/TerraMystics/terra-dart
 documentation: "https://docs.terra.money/"
@@ -22,9 +22,9 @@ dependencies:
   protobuf_google: ^0.0.1
   proto_annotations: ^2.1.2
   protobuf: ^2.1.0
+  fixnum: ^1.0.1
 
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0
   build_runner: ^2.3.2
-  json_serializable: ^6.5.4
