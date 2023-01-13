@@ -2,8 +2,6 @@
 syntax = "proto3";
 package cosmos.base.reflection.v2alpha1;
 
-import "google/api/annotations.proto";
-
 option go_package = "github.com/cosmos/cosmos-sdk/server/grpc/reflection/v2alpha1";
 
 // AppDescriptor describes a cosmos-sdk based application
@@ -111,36 +109,6 @@ message MsgDescriptor {
   string msg_type_url = 1;
 }
 
-// ReflectionService defines a service for application reflection.
-service ReflectionService {
-  // GetAuthnDescriptor returns information on how to authenticate transactions in the application
-  // NOTE: this RPC is still experimental and might be subject to breaking changes or removal in
-  // future releases of the cosmos-sdk.
-  rpc GetAuthnDescriptor(GetAuthnDescriptorRequest) returns (GetAuthnDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/authn";
-  }
-  // GetChainDescriptor returns the description of the chain
-  rpc GetChainDescriptor(GetChainDescriptorRequest) returns (GetChainDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/chain";
-  };
-  // GetCodecDescriptor returns the descriptor of the codec of the application
-  rpc GetCodecDescriptor(GetCodecDescriptorRequest) returns (GetCodecDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/codec";
-  }
-  // GetConfigurationDescriptor returns the descriptor for the sdk.Config of the application
-  rpc GetConfigurationDescriptor(GetConfigurationDescriptorRequest) returns (GetConfigurationDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/configuration";
-  }
-  // GetQueryServicesDescriptor returns the available gRPC queryable services of the application
-  rpc GetQueryServicesDescriptor(GetQueryServicesDescriptorRequest) returns (GetQueryServicesDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/query_services";
-  }
-  // GetTxDescriptor returns information on the used transaction object and available msgs that can be used
-  rpc GetTxDescriptor(GetTxDescriptorRequest) returns (GetTxDescriptorResponse) {
-    option (google.api.http).get = "/cosmos/base/reflection/v1beta1/app_descriptor/tx_descriptor";
-  }
-}
-
 // GetAuthnDescriptorRequest is the request used for the GetAuthnDescriptor RPC
 message GetAuthnDescriptorRequest {}
 // GetAuthnDescriptorResponse is the response returned by the GetAuthnDescriptor RPC
@@ -216,3 +184,20 @@ message QueryMethodDescriptor {
   // this method via tendermint abci.Query
   string full_query_path = 2;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
