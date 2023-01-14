@@ -32,14 +32,13 @@ dependencies:
   hash: ^1.0.4
   injector: ^2.0.0
   grpc: ^3.1.0
-  protobuf_google: ^0.0.1
   proto_annotations: ^2.1.2
   string_extensions: ^0.6.5
   json_annotation: ^4.7.0
   random_string_generator: ^2.0.0
   pointycastle: ^3.6.2
   terra_dart_keys: ^1.0.6
-  terra_dart_sdk_extensions: ^1.0.3
+  terra_dart_sdk_extensions: ^1.0.5
   terra_dart_sdk_protos: ^1.0.2
 
 dev_dependencies:

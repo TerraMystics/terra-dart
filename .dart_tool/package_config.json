@@ -555,7 +555,7 @@
     },
     {
       "name": "terra_dart_sdk_extensions",
-      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/terra_dart_sdk_extensions-1.0.3",
+      "rootUri": "file:///C:/Users/dande/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/terra_dart_sdk_extensions-1.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -644,7 +644,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-01-14T04:56:28.404914Z",
+  "generated": "2023-01-14T09:47:38.442854Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }

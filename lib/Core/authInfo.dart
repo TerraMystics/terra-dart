@@ -1,68 +1,76 @@
-// import 'package:terra_dart_sdk/src/Core/fee.dart';
+   import 'dart:typed_data';
 
-// import '../../rest/Json/Tx/Transaction/TxAuthInfo.dart';
-// import 'modeInfo.dart';
-// import 'signerInfo.dart';
+import '../src/rest/Json/Tx/Transaction/TxAuthInfo.dart';
+import 'fee.dart';
+import 'signerInfo.dart';
 
-// class AuthInfo {
-//   final List<SignerInfo> signer_infos;
-//   final Fee fee;
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart' as PROTO;
+class AuthInfo
+    {
+         List<SignerInfo>? signer_infos;
+final           Fee fee;
 
-//   AuthInfo(this.signer_infos, this.fee);
+         AuthInfo(
+            this.signer_infos,
+            this.fee);
 
-//   // static AuthInfo fromJSON(TxAuthInfo data) {
-//   //   return AuthInfo(
-//   //       data.signer_infos
-//   //           .map((w) => SignerInfo(
-//   //               w.public_key, w.sequence, ModeInfo.fromJSON(w.mode_info)))
-//   //           .toList(),
-//   //       Fee.fromJSON(data.fee));
-//   // }
+         static AuthInfo fromJSON(TxAuthInfo data)
+        {
+            return AuthInfo(
+                data.signer_infos.map((e) => SignerInfo(
+                    w._key,
+                    w.sequence,
+                    ModeInfo.FromJSON(w.mode_info))),
+                    Fee.fromJSON(data.fee));
+        }
 
-//   // static AuthInfo fromData(AuthInfoDataArgs data) {
-//   //   return AuthInfo(
-//   //       data.signer_Infos!
-//   //           .map((w) => SignerInfo(
-//   //               w.key!, w.sequence!, ModeInfo.fromData(w.mode_Info!)))
-//   //           .toList(),
-//   //       Fee.fromData(data.fee!));
-//   // }
+         static AuthInfo fromData(AuthInfoDataArgs data)
+        {
+            if (data.signer_infos != null)
+            {
+                return AuthInfo(data.signer_infos!.map((w) => SignerInfo.fromData(w)).toList(), 
+                Fee.fromData(data.fee!));
+            }
 
-//   //  byte[] ToProto()
-//   // {
-//   //     return ProtoExtensions.SerialiseFromData(this.ToProtoWithType());
-//   // }
+            return  AuthInfo(null, Fee.fromData(data.fee!));
+        }
 
-//   //  PROTO.AuthInfo ToProtoWithType()
-//   // {
-//   //     return new PROTO.AuthInfo()
-//   //     {
-//   //         Fee = this.fee.ToProtoWithType(),
-//   //         SignerInfos = this.signer_infos.ConvertAll(w => w.ToProtoWithType()),
-//   //     };
-//   // }
+         Uint8List toProto()
+        {
+            return  toProtoWithType().writeToBuffer();
+        }
 
-//   AuthInfoDataArgs toData() {
-//     return AuthInfoDataArgs()
-//       ..signer_Infos = signer_infos.map((e) => e.toData()).toList()
-//       ..fee = fee.toData();
-//   }
+        PROTO. AuthInfo toProtoWithType()
+        {
+          var auth =   PROTO.AuthInfo();
+          auth.fee = fee.toProtoWithType();
+          auth.signerInfos = signer_infos!.map((w) => w.toProtoWithType());
 
-//   TxAuthInfo toJson() {
-//     return TxAuthInfo(
-//         signer_infos.map((w) => w.toJson()).toList(), fee.toJson());
-//   }
+          return auth;
+        }
 
-//   //  static AuthInfo FromBytes(byte[] data)
-//   // {
-//   //     return ProtoExtensions.DeserialiseFromBytes<AuthInfo>(data);
-//   // }
-// }
+         AuthInfoDataArgs toData()
+        {
+            return  AuthInfoDataArgs()
+            {
+                Signer_Infos = this.signer_infos.ToList().ConvertAll(w => w.ToData()).ToArray(),
+                Fee = this.fee.ToData()
+            };
+        }
 
-import 'Fee.dart';
-import 'SignerInfo.dart';
+         TxAuthInfo toJson()
+        {
+            return  TxAuthInfo(fee.toJson(), signer_infos.map((w) => w.toJson()).toList());
+        }
 
-class AuthInfoDataArgs {
-  List<SignerInfoDataArgs>? signer_Infos;
-  FeeDataArgs? fee;
-}
+         static AuthInfo fromBytes(Uint8List data)
+        {
+            return   data;
+        }
+    }
+
+     class AuthInfoDataArgs
+    {
+         List<SignerInfoDataArgs>? signer_infos ;
+         FeeDataArgs? fee ;
+    }

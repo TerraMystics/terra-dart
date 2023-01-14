@@ -1,4 +1,5 @@
-import '../../src/proto/terra/keys/KeysDto.dart';
+
+import '../../src/rest/Json/keys/KeysDto.dart';
 
 abstract class SharedAccounts {
   double getAccountNumber();

@@ -1,6 +1,6 @@
 import '../../src/rest/Json/Staking/ValidatorDataArgsJSON.dart';
 import '../../src/rest/Json/enums/BondStatus.dart';
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import '../Keys/ValConsPublicKey.dart';
 import 'Commission.dart';
 import 'ValidatorDescription.dart';
@@ -41,7 +41,7 @@ class Validator {
         double.parse(data.delegator_shares!),
         ValidatorDescription.fromData(data.description!),
         double.parse(data.unbonding_Height!),
-        TerraStringExtensions.getISODateTimeFromString(data.unbonding_Time!),
+        TerraStringExtension.getISODateTimeFromString(data.unbonding_Time!),
         Commission.fromData(data.commission!),
         double.parse(data.min_Self_Delegation!));
   }

@@ -1,98 +1,93 @@
-//    import 'SignatureV2Single.dart';
-// import 'modeInfo.dart';
-// import 'signatureV2Multi.dart';
+import 'modeInfo.dart';
+import 'signatureV2Single.dart';
 
-// class SignatureV2Descriptor
-//     {
-//          SignatureV2Single? single ;
-//          SignatureV2Multi? multi ;
+class SignatureV2Descriptor {
+  SignatureV2Single? single;
+  //   SignatureV2Multi Multi ;
 
-//          SignatureV2Descriptor(dynamic data)
-//         {
-//             if (data is SignatureV2Single)
-//             {
-//                 single = data ;
-//             }
-//             if (data is SignatureV2Multi)
-//             {
-//                 multi = data ;
-//             }
-//         }
+  SignatureV2Descriptor(dynamic data) {
+    if (data is SignatureV2Single) {
+      single = data as SignatureV2Single;
+    }
+    // if (data is SignatureV2Multi)
+    // {
+    //     this.Multi = data as SignatureV2Multi;
+    // }
+  }
 
-//          Map<ModeInfo, String> ToModeInfoAndSignature()
-//         {
-//             if (single != null)
-//             {
-//                 var sigData = single;
-//                 return  [ModeInfo( SignatureV2Single(sigData.mode, sigData.signature)),
-//                    sigData.signature)]
-//             }
+  ModeSignature toModeInfoAndSignature() {
+    if (single != null) {
+      var sigData = single;
+      return ModeSignature(
+          ModeInfo(SignatureV2Single(sigData!.mode,
+              signature: sigData.signature ?? "")),
+          sigData.signature);
+    }
 
-//             //if (this.Multi != null)
-//             //{
-//             //    var sigData = this.Multi;
-//             //    List<ModeInfo> modeInfos =  List<ModeInfo>();
-//             //    List<byte[]> signatures =  List<byte[]>();
-//             //    foreach (var signature in sigData.signatures)
-//             //    {
-//             //        var sig = signature.ToModeInfoAndSignature();
-//             //        modeInfos.Add(sig.Key);
-//             //        signatures.Add(sig.Value);
-//             //    }
+    //if (this.Multi != null)
+    //{
+    //    var sigData = this.Multi;
+    //    List<ModeInfo> modeInfos = new List<ModeInfo>();
+    //    List<byte[]> signatures = new List<byte[]>();
+    //    foreach (var signature in sigData.signatures)
+    //    {
+    //        var sig = signature.ToModeInfoAndSignature();
+    //        modeInfos.Add(sig.Key);
+    //        signatures.Add(sig.Value);
+    //    }
 
-//             //    var multisigBytes = ProtoExtensions.SerialiseFromData( PROTO.MultiSignature()
-//             //    {
-//             //        Signatures = signatures
-//             //    });
+    //    var multisigBytes = ProtoExtensions.SerialiseFromData(new PROTO.MultiSignature()
+    //    {
+    //        Signatures = signatures
+    //    });
 
-//             //    return  KeyValuePair<ModeInfo, byte[]>(
-//             //         ModeInfo( SignatureV2Multi(sigData.bitArray, sigData.signatures)),
-//             //        multisigBytes);
-//             //}
+    //    return new KeyValuePair<ModeInfo, byte[]>(
+    //        new ModeInfo(new SignatureV2Multi(sigData.bitArray, sigData.signatures)),
+    //        multisigBytes);
+    //}
 
-//             throw Exception("invalid signature descriptor");
-//         }
+    throw Exception("");
+  }
 
-//          static SignatureV2Descriptor fromData(SignatureV2DescriptorDataArgs data)
-//         {
-//             if (data.single != null)
-//             {
-//                 return  SignatureV2Descriptor(SignatureV2Single.fromData(data.single!));
-//             }
+  static SignatureV2Descriptor fromData(SignatureV2DescriptorDataArgs data) {
+    if (data.single != null) {
+      return SignatureV2Descriptor(SignatureV2Single.fromData(data.single!));
+    }
 
-//             if (data.multi != null)
-//             {
-//                 return  SignatureV2Descriptor(SignatureV2Multi.fromData(data.multi!));
-//             }
+    // if (data.Multi != null) {
+    //   return new SignatureV2Descriptor(SignatureV2Multi.FromData(data.Multi));
+    // }
 
-//             throw  Exception("must be one of single or multi");
-//         }
+    throw Exception("must be one of single or multi");
+  }
 
-//          SignatureV2DescriptorDataArgs toData()
-//         {
-//             if (single != null)
-//             {
-//                 return  SignatureV2DescriptorDataArgs()
+  SignatureV2DescriptorDataArgs toData() {
+    if (single != null) {
+      return SignatureV2DescriptorDataArgs(single!.toData());
+    }
 
-//                 ..    single = single!.toData();
+    // if (this.Multi != null)
+    // {
+    //     return new SignatureV2DescriptorDataArgs()
+    //     {
+    //         Multi = this.Multi.ToData()
+    //     };
+    // }
 
-//             }
-
-//             if (multi != null)
-//             {
-//                 return  SignatureV2DescriptorDataArgs()
-
-//                   ..  multi = multi.toData();
-
-//             }
-
-//             throw  Exception("must be one of single or multi");
-//         }
-//     }
-
-import 'SignatureV2Single.dart';
+    throw Exception("must be one of single or multi");
+  }
+}
 
 class SignatureV2DescriptorDataArgs {
- // SingleDataArgs? single;
-  // MultiDataArgs? multi;
+  SingleDataArgs? single;
+//         MultiDataArgs Multi ;
+
+  SignatureV2DescriptorDataArgs(this.single);
+}
+
+class ModeSignature {
+  ModeInfo? modeInfo;
+  String? signature;
+
+  ModeSignature(this.modeInfo, this.signature);
 }

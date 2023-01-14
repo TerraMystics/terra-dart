@@ -1,4 +1,5 @@
-import '../../../Core/Extensions/HashExtensionsLegacy.dart';
+import 'package:terra_dart_sdk_extensions/extensions/hash/hashExtensions.dart';
+
 import '../../../TerraStartup.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';

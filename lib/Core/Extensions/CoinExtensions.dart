@@ -1,5 +1,7 @@
 import '../../src/rest/Json/CoinJSON.dart';
 import '../coin.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/base/v1beta1/coin.pb.dart'
+    as COMB;
 
 class CoinsExtensions {
   static const String COINS_FROM_STRING_REGEX = r"/,\\s*/";
@@ -15,10 +17,9 @@ class CoinsExtensions {
     return coins.map((e) => e.toJSON()).toList();
   }
 
-  //  static List<COMB.Coin> toProto( List<Coin> coins)
-  // {
-  //     return coins.map((e) => e.toData()).toList();
-  // }
+  static List<COMB.Coin> toProto(List<Coin> coins) {
+    return coins.map((e) => e.toProtoWithType()).toList();
+  }
 
   static List<Coin> fromAmino(List<CoinAminoArgs> coins) {
     return coins.map((e) => Coin.fromAmino(e)).toList();
@@ -31,10 +32,10 @@ class CoinsExtensions {
   static List<Coin> fromJSON(List<CoinJSON> coins) {
     return coins.map((e) => Coin.fromJSON(e)).toList();
   }
-  //  static List<Coin> FromProto( List<COMB.Coin> coins)
-  // {
-  //     return coins.ToList().ConvertAll(w => Coin.FromProto(w));
-  // }
+
+  static List<Coin> fromProto(List<COMB.Coin> coins) {
+    return coins.map((e) => Coin.fromProto(e)).toList();
+  }
 
   static String convertToString(List<Coin> coins) {
     return coins.map((e) => e.toString()).toList().join(", ");

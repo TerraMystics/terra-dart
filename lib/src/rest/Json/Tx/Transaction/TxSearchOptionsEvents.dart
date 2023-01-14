@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../proto/terra/keys/KeysDto.dart';
-import 'TxSignerModeInfo.dart';
 
 part 'TxSearchOptionsEvents.g.dart';
 

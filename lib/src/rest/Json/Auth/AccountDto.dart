@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../proto/terra/keys/KeysDto.dart';
+import '../keys/KeysDto.dart';
 
 part 'AccountDto.g.dart';
 

@@ -1,4 +1,4 @@
-import '../../../../proto/terra/keys/KeysDto.dart';
+import '../../keys/KeysDto.dart';
 
 class SignerData {
   double? sequenceNumber;

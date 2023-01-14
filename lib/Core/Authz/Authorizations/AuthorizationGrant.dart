@@ -1,5 +1,5 @@
-import '../../Extensions/TerraStringExtensions.dart';
 import '../../enums/AuthorizationGrantType.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 class AuthorizationGrant {
   final dynamic authorization;
@@ -33,13 +33,13 @@ class AuthorizationGrant {
   AuthorizationGrantAminoArgs toAmino() {
     return AuthorizationGrantAminoArgs()
       ..authorization = authorization
-      ..expiration = TerraStringExtensions.getISOStringFromDate(expiration);
+      ..expiration = TerraStringExtension.getISOStringFromDate(expiration);
   }
 
   AuthorizationGrantDataArgs toData() {
     return AuthorizationGrantDataArgs()
       ..authorization = authorization
-      ..expiration = TerraStringExtensions.getISOStringFromDate(expiration);
+      ..expiration = TerraStringExtension.getISOStringFromDate(expiration);
   }
 
   // public PC.Grant ToProtoWithType()

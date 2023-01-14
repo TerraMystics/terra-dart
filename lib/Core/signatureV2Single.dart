@@ -1,37 +1,40 @@
-// import '../../rest/Json/Tx/Transaction/TxSignerModeInfoSingle.dart';
-// import '../../rest/Json/enums/SignMode.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/signing/v1beta1/signing.pbenum.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
+    as PROTO;
 
-// class SignatureV2Single {
-//   final SignMode mode;
-//   final String signature;
+import '../src/rest/Json/Tx/Transaction/TxSignerModeInfoSingle.dart';
+import '../src/rest/converters/signModeConverter.dart';
 
-//   SignatureV2Single(this.mode, {this.signature = ""});
-//   static SignatureV2Single fromData(SingleDataArgs data) {
-//     return SignatureV2Single(data.mode!, signature: data.signature!);
-//   }
+class SignatureV2Single {
+  SignMode? mode;
+  String? signature;
 
-//   SingleDataArgs toData() {
-//     return SingleDataArgs()
-//       ..mode = mode
-//       ..signature = signature;
-//   }
-//    TxSignerModeInfoSingle toJSON()
-//   {
-//       return  TxSignerModeInfoSingle()
+  SignatureV2Single(mode, {String signature = ""});
 
-//         ..  mode = SignModeConverters.GetFromEnum(this.mode)
+  static SignatureV2Single fromData(SingleDataArgs data) {
+    return SignatureV2Single(data.mode, signature: data.signature ?? "");
+  }
 
-//   }
-//   //  PROTO.Single ToProtoWithType()
-//   // {
-//   //     return new PROTO.Single()
-//   //     {
-//   //         Mode = this.mode
-//   //     };
-//   // }
-// }
+  SingleDataArgs toData() {
+    var data = SingleDataArgs();
+    data.mode = mode;
+    data.signature = signature;
+    return data;
+  }
 
-// class SingleDataArgs {
-//   SignMode? mode;
-//   String? signature;
-// }
+  TxSignerModeInfoSingle toJSON() {
+    return TxSignerModeInfoSingle(SignModeConverters.getFromEnum(mode!));
+  }
+
+  PROTO.ModeInfo_Single toProtoWithType() {
+    var cmode = PROTO.ModeInfo_Single();
+    cmode.mode = mode!;
+
+    return cmode;
+  }
+}
+
+class SingleDataArgs {
+  SignMode? mode;
+  String? signature;
+}

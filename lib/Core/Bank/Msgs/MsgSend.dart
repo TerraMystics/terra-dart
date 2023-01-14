@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:json_annotation/json_annotation.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/bank/v1beta1/tx.pb.dart'
+    as PROTO;
 
 import '../../../src/rest/Json/Tx/Block/SignerData.dart';
 import '../../Constants/BankConstants.dart';
@@ -23,10 +27,10 @@ class MsgSend extends SignerData {
         CoinsExtensions.fromData(data.amount));
   }
 
-  //  static MsgSend FromProto(PROTO.MsgSend data)
-  // {
-  //     return new MsgSend(data.FromAddress, data.ToAddress, CoinsExtensions.FromProto(data.Amounts).ToList());
-  // }
+  static MsgSend fromProto(PROTO.MsgSend data) {
+    return MsgSend(data.fromAddress, data.toAddress,
+        CoinsExtensions.fromProto(data.amount));
+  }
 
   MsgSendAminoArgs toAmino() {
     var val = MsgSendValueAminoArgs(
@@ -39,20 +43,16 @@ class MsgSend extends SignerData {
         from_address, to_address, CoinsExtensions.toData(amount));
   }
 
-  //  PROTO.MsgSend ToProtoWithType()
-  // {
-  //     return new PROTO.MsgSend()
-  //     {
-  //         Amounts = this.amount.ConvertAll(w => w.ToProtoWithType()).ToList(),
-  //         FromAddress = this.from_address,
-  //         ToAddress = this.to_address
-  //     };
-  // }
+  PROTO.MsgSend toProtoWithType() {
+    var msg = PROTO.MsgSend();
+    msg.fromAddress = from_address;
+    msg.toAddress = to_address;
+    return msg;
+  }
 
-  //  byte[] ToProto()
-  // {
-  //     return ProtoExtensions.SerialiseFromData(this.ToProtoWithType());
-  // }
+  Uint8List toProto() {
+    return toProtoWithType().writeToBuffer();
+  }
 }
 
 class MsgSendAminoArgs {

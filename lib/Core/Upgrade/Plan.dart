@@ -1,7 +1,7 @@
 import 'package:protobuf_google/protobuf_google.dart';
 import 'package:protobuf_google/protobuf_google.dart';
 
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 class Plan {
   final String name;
@@ -16,7 +16,7 @@ class Plan {
   static Plan fromData(PlanCommonArgs data) {
     return Plan(
         data.name!,
-        TerraStringExtensions.getISODateTimeFromString(data.time!),
+        TerraStringExtension.getISODateTimeFromString(data.time!),
         data.height!,
         data.info!,
         data.upgraded_client_state!);
@@ -35,7 +35,7 @@ class Plan {
   PlanCommonArgs toData() {
     return PlanCommonArgs()
       ..name = name
-      ..time = TerraStringExtensions.getISOStringFromDate(time)
+      ..time = TerraStringExtension.getISOStringFromDate(time)
       ..upgraded_client_state = upgraded_client_state
       ..height = height
       ..info = info;

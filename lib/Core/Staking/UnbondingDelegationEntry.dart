@@ -1,5 +1,5 @@
 import '../../src/rest/Json/UnbondingDelegationEntryValueCommonArgsJSON.dart';
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 class UnbondingDelegationEntry {
   final int initial_balance;
@@ -16,7 +16,7 @@ class UnbondingDelegationEntry {
         int.parse(data.initial_Balance!),
         int.parse(data.balance!),
         double.parse(data.creation_Height!),
-        TerraStringExtensions.getISODateTimeFromString(data.completion_Time!));
+        TerraStringExtension.getISODateTimeFromString(data.completion_Time!));
   }
 
   static UnbondingDelegationEntry fromJSON(
@@ -39,7 +39,7 @@ class UnbondingDelegationEntry {
   UnbondingDelegationEntryValueCommonArgs toData() {
     return UnbondingDelegationEntryValueCommonArgs()
       ..completion_Time =
-          TerraStringExtensions.getISOStringFromDate(completion_time)
+          TerraStringExtension.getISOStringFromDate(completion_time)
       ..creation_Height = creation_height.toString()
       ..initial_Balance = initial_balance.toString()
       ..balance = balance.toString();

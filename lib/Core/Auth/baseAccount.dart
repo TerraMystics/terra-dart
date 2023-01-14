@@ -1,5 +1,5 @@
 
-import '../../src/proto/terra/keys/KeysDto.dart';
+import '../../src/rest/Json/keys/KeysDto.dart';
 import '../Constants/AccountsConstants.dart';
 import '../Constants/CosmosConstants.dart';
 import 'sharedAccounts.dart';

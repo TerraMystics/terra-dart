@@ -5,7 +5,7 @@ import '../../src/rest/Json/enums/ProposalStatus.dart';
 import '../Constants/ProposalConstants.dart';
 import '../Distribution/Proposals/CommunityPoolSpendProposal.dart';
 import '../Extensions/CoinExtensions.dart';
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import '../IBC/Proposals/ClientUpdateProposal.dart';
 import '../Params/Proposals/ParameterChangeProposal.dart';
 import '../Upgrade/Proposals/CancelSoftwareUpgradeProposal.dart';
@@ -125,14 +125,14 @@ class Proposal {
     return CommonProposalArgs()
       ..content = content
       ..deposit_End_Time =
-          TerraStringExtensions.getISOStringFromDate(deposit_end_time)
+          TerraStringExtension.getISOStringFromDate(deposit_end_time)
       ..final_tally_result = final_tally_result
       ..status = status
-      ..submit_Time = TerraStringExtensions.getISOStringFromDate(submit_time)
+      ..submit_Time = TerraStringExtension.getISOStringFromDate(submit_time)
       ..voting_End_Time =
-          TerraStringExtensions.getISOStringFromDate(voting_end_time)
+          TerraStringExtension.getISOStringFromDate(voting_end_time)
       ..voting_Start_Time =
-          TerraStringExtensions.getISOStringFromDate(voting_start_time)
+          TerraStringExtension.getISOStringFromDate(voting_start_time)
       ..total_Deposit = total_deposit
       ..id = id;
   }

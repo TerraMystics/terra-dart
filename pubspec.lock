@@ -469,7 +469,7 @@ packages:
     source: hosted
     version: "2.1.0"
   protobuf_google:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: protobuf_google
       url: "https://pub.dartlang.org"
@@ -647,7 +647,7 @@ packages:
       name: terra_dart_sdk_extensions
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.5"
   terra_dart_sdk_protos:
     dependency: "direct main"
     description:

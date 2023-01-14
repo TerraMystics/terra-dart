@@ -1,4 +1,4 @@
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 class Entry {
   final int initial_balance;
@@ -16,7 +16,7 @@ class Entry {
         int.parse(data.balance!),
         double.parse(data.redelegation_Entry!.shares_Dst!),
         double.parse(data.redelegation_Entry!.creation_Height!),
-        TerraStringExtensions.getISODateTimeFromString(
+        TerraStringExtension.getISODateTimeFromString(
             data.redelegation_Entry!.completion_Time!));
   }
 
@@ -26,7 +26,7 @@ class Entry {
         int.parse(data.balance!),
         double.parse(data.redelegation_Entry!.shares_Dst!),
         double.parse(data.redelegation_Entry!.creation_Height!),
-        TerraStringExtensions.getISODateTimeFromString(
+        TerraStringExtension.getISODateTimeFromString(
             data.redelegation_Entry!.completion_Time!));
   }
 
@@ -43,7 +43,7 @@ class Entry {
   EntryAminoArgs toAmino() {
     var redelegation = EntryValueCommonArgs()
       ..completion_Time =
-          TerraStringExtensions.getISOStringFromDate(completion_time)
+          TerraStringExtension.getISOStringFromDate(completion_time)
       ..creation_Height = creation_height.toString()
       ..initial_Balance = initial_balance.toString()
       ..shares_Dst = shares_dst.toString();
@@ -56,7 +56,7 @@ class Entry {
   EntryDataArgs toData() {
     var redelegation = EntryValueCommonArgs()
       ..completion_Time =
-          TerraStringExtensions.getISOStringFromDate(completion_time)
+          TerraStringExtension.getISOStringFromDate(completion_time)
       ..creation_Height = creation_height.toString()
       ..initial_Balance = initial_balance.toString()
       ..shares_Dst = shares_dst.toString();

@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'Extensions/TerraStringExtensions.dart';
 import 'tx.dart';
 import 'txLog.dart';
 

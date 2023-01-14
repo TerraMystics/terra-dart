@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 import '../../Constants/CosmosConstants.dart';
 import '../../Constants/FeeGrantConstants.dart';
 import '../../Extensions/CoinExtensions.dart';
-import '../../Extensions/TerraStringExtensions.dart';
 import '../../coin.dart';
 
 class BasicAllowance {
@@ -15,12 +15,12 @@ class BasicAllowance {
   static BasicAllowance fromAmino(BasicAllowanceAminoArgs data) {
     return BasicAllowance(
         CoinsExtensions.fromAmino(data.value.spend_Limit!).toList(),
-        TerraStringExtensions.getISODateTimeFromString(data.value.expiration!));
+        TerraStringExtension.getISODateTimeFromString(data.value.expiration!));
   }
 
   static BasicAllowance fromData(BasicAllowanceDataArgs data) {
     return BasicAllowance(CoinsExtensions.fromData(data.spend_Limit!).toList(),
-        TerraStringExtensions.getISODateTimeFromString(data.expiration!));
+        TerraStringExtension.getISODateTimeFromString(data.expiration!));
   }
 
   //  static BasicAllowance FromProto(PROTO.BasicAllowance data)
@@ -31,7 +31,7 @@ class BasicAllowance {
   BasicAllowanceAminoArgs toAmino() {
     var val = BasicAllowanceValueAminoArgs()
       ..spend_Limit = CoinsExtensions.toAmino(spend_limit!)
-      ..expiration = TerraStringExtensions.getISOStringFromDate(expiration!);
+      ..expiration = TerraStringExtension.getISOStringFromDate(expiration!);
 
     return BasicAllowanceAminoArgs(val);
   }
@@ -39,7 +39,7 @@ class BasicAllowance {
   BasicAllowanceDataArgs toData() {
     var val = BasicAllowanceDataArgs()
       ..spend_Limit = CoinsExtensions.toData(spend_limit!)
-      ..expiration = TerraStringExtensions.getISOStringFromDate(expiration!);
+      ..expiration = TerraStringExtension.getISOStringFromDate(expiration!);
 
     return val;
   }

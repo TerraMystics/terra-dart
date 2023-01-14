@@ -1,6 +1,5 @@
-
 import '../../src/rest/Json/Staking/CommissionCommonArgsJSON.dart';
-import '../Extensions/TerraStringExtensions.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import 'CommissionRates.dart';
 
 class Commission {
@@ -11,7 +10,7 @@ class Commission {
 
   static Commission fromData(CommissionCommonArgs data) {
     return Commission(CommissionRates.fromData(data.commission_Rates!),
-        TerraStringExtensions.getISODateTimeFromString(data.update_Time!));
+        TerraStringExtension.getISODateTimeFromString(data.update_Time!));
   }
 
   static Commission fromJSON(CommissionCommonArgsJSON data) {
@@ -28,7 +27,7 @@ class Commission {
 
   CommissionCommonArgs toData() {
     return CommissionCommonArgs()
-      ..update_Time = TerraStringExtensions.getISOStringFromDate(update_time)
+      ..update_Time = TerraStringExtension.getISOStringFromDate(update_time)
       ..commission_Rates = commission_rates.toData();
   }
 

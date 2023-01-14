@@ -1,5 +1,7 @@
-import 'package:terra_dart_sdk_protos/proto_out/terra/market/v1beta1/genesis.pb.dart';
+import 'dart:typed_data';
 
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/base/v1beta1/coin.pb.dart'
+    as CF;
 import '../src/rest/Json/CoinJSON.dart';
 import 'Numeric.dart';
 
@@ -21,10 +23,9 @@ class Coin implements Numeric<Coin, dynamic> {
     return Coin(data.denom, double.parse(data.amount!));
   }
 
-  //  static Coin FromProto(COMB.Coin data)
-  // {
-  //     return null;
-  // }
+  static Coin fromProto(CF.Coin data) {
+    return Coin(data.denom, double.parse(data.amount));
+  }
 
   CoinDataArgs toData() {
     return CoinDataArgs()
@@ -32,23 +33,17 @@ class Coin implements Numeric<Coin, dynamic> {
       ..amount = amount;
   }
 
-  //  Uint8List[] toProto()
-  // {
-  //     return ProtoExtensions.SerialiseFromData<CCF.Coin>(new CCF.Coin()
-  //     {
-  //         Amount = amount.ToString(),
-  //         Denom = denom
-  //     });
-  // }
+  Uint8List toProto() {
+    return toProtoWithType().writeToBuffer();
+  }
 
-  //  CCF.Coin ToProtoWithType()
-  // {
-  //     return new CCF.Coin()
-  //     {
-  //         Amount = amount.ToString(),
-  //         Denom = denom
-  //     };
-  // }
+  CF.Coin toProtoWithType() {
+    var coin = CF.Coin();
+    coin.amount = amount.toString();
+    coin.denom = denom.toString();
+
+    return coin;
+  }
 
   CoinAminoArgs toAmino() {
     return CoinAminoArgs()
