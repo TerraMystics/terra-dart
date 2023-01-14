@@ -9,6 +9,9 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../base/v1beta1/coin.pb.dart';
+import 'bank.pb.dart';
+
 class MsgSend extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

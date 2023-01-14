@@ -1,3 +1,5 @@
+import 'package:terra_dart_sdk_protos/proto_out/terra/market/v1beta1/genesis.pb.dart';
+
 import '../src/rest/Json/CoinJSON.dart';
 import 'Numeric.dart';
 

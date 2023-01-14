@@ -9,6 +9,10 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../base/query/v1beta1/pagination.pb.dart';
+import '../../base/v1beta1/coin.pb.dart';
+import 'bank.pb.dart';
+
 class QueryBalanceRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')

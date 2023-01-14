@@ -648,6 +648,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  terra_dart_sdk_protos:
+    dependency: "direct main"
+    description:
+      name: terra_dart_sdk_protos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   test:
     dependency: "direct dev"
     description:

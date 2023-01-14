@@ -40,6 +40,7 @@ dependencies:
   pointycastle: ^3.6.2
   terra_dart_keys: ^1.0.6
   terra_dart_sdk_extensions: ^1.0.3
+  terra_dart_sdk_protos: ^1.0.2
 
 dev_dependencies:
   lints: ^2.0.0

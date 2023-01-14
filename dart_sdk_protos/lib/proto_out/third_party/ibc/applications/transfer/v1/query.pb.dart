@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../../cosmos/base/kv/v1beta1/kv.pb.dart';
+import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart';
 import 'transfer.pb.dart';
 
 class QueryDenomTraceRequest extends $pb.GeneratedMessage {

@@ -9,6 +9,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../google/protobuf/any/any.pb.dart' as $0;
+import '../../base/query/v1beta1/pagination.pb.dart';
+import 'auth.pb.dart';
 
 class QueryAccountsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(

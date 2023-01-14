@@ -10,6 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../../cosmos/upgrade/v1beta1/upgrade.pb.dart';
 import '../../../../google/protobuf/any/any.pb.dart' as $0;
 
 class IdentifiedClientState extends $pb.GeneratedMessage {

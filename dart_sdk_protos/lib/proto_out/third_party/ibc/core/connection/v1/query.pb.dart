@@ -10,6 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../../cosmos/base/query/v1beta1/pagination.pb.dart';
 import '../../../../google/protobuf/any/any.pb.dart' as $0;
 import '../../client/v1/client.pb.dart';
 import 'connection.pb.dart';

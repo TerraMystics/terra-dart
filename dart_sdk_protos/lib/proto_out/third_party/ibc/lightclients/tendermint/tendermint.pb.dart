@@ -13,6 +13,8 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import '../../../confio/proofs.pb.dart';
 import '../../../google/protobuf/duration/duration.pb.dart' as $0;
 import '../../../google/protobuf/timestamp/timestamp.pb.dart' as $1;
+import '../../../tendermint/types/types.pb.dart';
+import '../../../tendermint/types/validator.pb.dart';
 import '../../core/client/v1/client.pb.dart';
 import '../../core/commitment/v1/commitment.pb.dart';
 

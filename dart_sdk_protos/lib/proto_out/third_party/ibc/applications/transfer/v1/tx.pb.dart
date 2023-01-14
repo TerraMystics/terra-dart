@@ -10,6 +10,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../../../cosmos/base/v1beta1/coin.pb.dart';
 import '../../../core/client/v1/client.pb.dart';
 
 class MsgTransfer extends $pb.GeneratedMessage {
