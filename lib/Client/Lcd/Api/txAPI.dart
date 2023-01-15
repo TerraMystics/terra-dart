@@ -18,7 +18,7 @@ class TxAPI extends BaseAPI {
     var response = await apiRequester.getAsync<TxContainerJSON>(rootPath);
     if (response.successful!) {
       var result = TxContainerJSON.fromJson(response.result!);
-      return result.tx_response;
+      return result.tx_response!;
     }
 
     throw Exception("");

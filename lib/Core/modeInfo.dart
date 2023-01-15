@@ -45,6 +45,10 @@ class ModeInfo {
     throw Exception("Must Single or Multi");
   }
 
+  static ModeInfo fromProto(PROTO.ModeInfo data) {
+    return ModeInfo(data.single);
+  }
+
   // static ModeInfo FromProto(PROTO.ModeInfo data)
   //{
   //    if (data.single != null)

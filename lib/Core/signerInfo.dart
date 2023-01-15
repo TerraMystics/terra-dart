@@ -20,6 +20,11 @@ class SignerInfo {
         data.key!, data.sequence!, ModeInfo.fromData(data.mode_Info!));
   }
 
+  static SignerInfo fromProto(PROTO.SignerInfo data) {
+    return SignerInfo(KeysDto.unpackAny(data.publicKey),
+        data.sequence.toDouble(), ModeInfo.fromProto(data.modeInfo));
+  }
+
   PROTO.SignerInfo toProtoWithType() {
     var msg = PROTO.SignerInfo();
 

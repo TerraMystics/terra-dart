@@ -1,4 +1,5 @@
 import 'package:terra_dart_keys/terra_keys.dart';
+import 'package:terra_dart_sdk/Core/Keys/TxMnemonic.dart';
 
 import 'Api/authAPI.dart';
 import 'Api/authzAPI.dart';
@@ -60,7 +61,7 @@ class LcdClient {
       this.broadcastTx,
       this.wasm);
 
-  Wallet createWallet(Key key) {
+  Wallet createWallet(TxMnemonic key) {
     return Wallet(this, key.accAddress(), broadcastTx, key);
   }
 }

@@ -1,86 +1,86 @@
-// import 'AuthInfo.dart';
-// import 'Extensions/TerraStringExtensions.dart';
-// import 'Fee.dart';
-// import 'txBody.dart';
+import 'dart:typed_data';
 
-// class SignDoc {
-//   final String chain_id;
-//   final double account_number;
-//   final double sequence;
-//   final AuthInfo auth_info;
-//   final TxBody tx_body;
+import 'package:proto_annotations/proto_annotations.dart';
+import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
+    as PROTO;
+import '../src/rest/Json/Tx/Transaction/Upload/TxUploadMessageData.dart';
+import 'authInfo.dart';
+import 'fee.dart';
+import 'tx.dart';
+import 'txBody.dart';
 
-//   SignDoc(this.chain_id, this.account_number, this.sequence, this.auth_info,
-//       this.tx_body);
+class SignDoc {
+  final String chain_id;
+  final double account_number;
+  final double sequence;
+  final AuthInfo auth_info;
+  TxBody? tx_body;
 
-//   static SignDoc fromData(SignDocDataArgs data) {
-//     return SignDoc(
-//         data.chain_Id!,
-//         double.parse(data.account_Number!),
-//         double.parse(data.sequence!),
-//         AuthInfo.FromBytes(TerraStringExtensions.GetBase64BytesFromString(
-//             data.auth_Info_Bytes)),
-//         null);
-//   }
+  SignDoc(this.chain_id, this.account_number, this.sequence, this.auth_info,
+      {this.tx_body});
 
-//   //  PROTO.SignDoc ToProtoWithType(TxUploadMessageData[] messages = null)
-//   // {
-//   //     return  PROTO.SignDoc()
-//   //     {
-//   //         AccountNumber = (ulong)this.account_number,
-//   //         BodyBytes = this.tx_body.ToProto(messages),
-//   //         AuthInfoBytes = this.auth_info.ToProto(),
-//   //         ChainId = this.chain_id
-//   //     };
-//   // }
+  static SignDoc fromData(SignDocDataArgs data) {
+    return SignDoc(
+        data.chain_Id!,
+        double.parse(data.account_number!),
+        double.parse(data.sequence!),
+        AuthInfo.fromBytes(
+            TerraStringExtension.getBytesFromBase64(data.auth_Info_Bytes!)));
+  }
 
-//   //  byte[] ToProto(TxUploadMessageData[] messages = null)
-//   // {
-//   //     var data = this.ToProtoWithType(messages);
-//   //     return ProtoExtensions.SerialiseFromData(data);
-//   // }
+  PROTO.SignDoc toProtoWithType({List<TxUploadMessageData>? messages}) {
+    return PROTO.SignDoc()
+      ..accountNumber = Int64(account_number.toInt())
+      ..bodyBytes = tx_body!.toProto(messages: messages)
+      ..authInfoBytes = auth_info.toProto()
+      ..chainId = chain_id;
+  }
 
-//   Tx toUnsignedTx() {
-//     return Tx(tx_body, auth_info, List<String>.empty());
-//   }
+  Uint8List toProto({List<TxUploadMessageData>? messages}) {
+    return toProtoWithType(messages: messages).writeToBuffer();
+  }
 
-//   SignDocDataArgs toData() {
-//     return SignDocDataArgs()
-//       ..account_Number = account_number.toString()
-//       ..auth_Info_Bytes =
-//           TerraStringExtensions.GetBase64FromBytes(this.auth_info.ToProto())
-//       ..body_Bytes =
-//           TerraStringExtensions.GetBase64FromBytes(this.tx_body.ToProto())
-//       ..chain_Id = chain_id
-//       ..sequence = sequence.toString();
-//   }
+  Tx toUnsignedTx() {
+    return Tx(tx_body!, auth_info, []);
+  }
 
-//   SignDocAminoArgs ToAmino() {
-//     return SignDocAminoArgs()
-//       ..account_Number = account_number.toString()
-//       ..timeout_Height = tx_body.timeout_height.ToString()
-//       ..fee = auth_info.fee.toAmino()
-//       ..memo = tx_body.memo
-//       ..msgs = tx_body.messages
-//       ..chain_Id = chain_id
-//       ..sequence = sequence.toString();
-//   }
-// }
+  SignDocDataArgs toData() {
+    return SignDocDataArgs()
+      ..account_number = account_number.toString()
+      ..auth_Info_Bytes =
+          TerraStringExtension.getBase64FromBytes(auth_info.toProto())
+      ..body_bytes = TerraStringExtension.getBase64FromBytes(tx_body!.toProto())
+      ..chain_Id = chain_id
+      ..sequence = sequence.toString();
+  }
 
-// class SignDocAminoArgs extends SignDocCommonArgs {
-//   String? timeout_Height;
-//   FeeAminoArgs? fee;
-//   String? memo;
-//   List<dynamic>? msgs;
-// }
+  SignDocAminoArgs toAmino() {
+    return SignDocAminoArgs()
+      ..fee = auth_info.fee.toAmino()
+      ..memo = tx_body!.memo
+      ..msgs = tx_body!.messages
+      ..timeout_Height = tx_body!.timeout_height.toString()
+      ..account_number = account_number.toString()
+      ..chain_Id = chain_id
+      ..sequence = sequence.toString();
+  }
+}
 
-// class SignDocDataArgs extends SignDocCommonArgs {
-//   String? auth_Info_Bytes;
-//   String? body_Bytes;
-// }
+class SignDocAminoArgs extends SignDocCommonArgs {
+  String? timeout_Height;
+  FeeAminoArgs? fee;
+  String? memo;
+  List<dynamic>? msgs;
+}
 
-// class SignDocCommonArgs {
-//   String? chain_Id;
-//   String? account_Number;
-//   String? sequence;
-// }
+class SignDocDataArgs extends SignDocCommonArgs {
+  String? auth_Info_Bytes;
+  String? body_bytes;
+}
+
+class SignDocCommonArgs {
+  String? chain_Id;
+  String? account_number;
+  String? sequence;
+}

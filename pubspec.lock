@@ -640,7 +640,7 @@ packages:
       name: terra_dart_keys
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   terra_dart_sdk_extensions:
     dependency: "direct main"
     description:

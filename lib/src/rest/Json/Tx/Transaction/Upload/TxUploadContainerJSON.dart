@@ -9,14 +9,18 @@ part 'TxUploadContainerJSON.g.dart';
 
 @JsonSerializable()
 class TxUploadContainerJSON {
-  final TxValueJSON tx;
-  final String tx_bytes;
-  final List<CoinJSON> tax_amount;
-  final TxGasInfoResponse gas_info;
-  final TxResponse tx_response;
+  TxValueJSON? tx;
+  String? tx_bytes;
+  List<CoinJSON>? tax_amount;
+  TxGasInfoResponse? gas_info;
+  TxResponse? tx_response;
 
   TxUploadContainerJSON(
-      this.tx, this.tx_bytes, this.tax_amount, this.gas_info, this.tx_response);
+      {this.tx,
+      this.tx_bytes,
+      this.tax_amount,
+      this.gas_info,
+      this.tx_response});
 
   // /// Connect the generated [_$AccountDtoFromJson] function to the `fromJson`
   // /// factory.

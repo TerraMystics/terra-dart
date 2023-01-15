@@ -7,6 +7,8 @@ import 'Extensions/CoinExtensions.dart';
 import 'coin.dart';
 
 import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
+    as PROTO;
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
     as COMB;
 
 class Fee {
@@ -61,6 +63,11 @@ class Fee {
   static Fee fromData(FeeDataArgs data) {
     return Fee(
         double.parse(data.gas_Limit!), CoinsExtensions.fromData(data.amount!),
+        payer: data.payer, granter: data.granter);
+  }
+
+  static Fee fromProto(PROTO.Fee data) {
+    return Fee(data.gasLimit.toDouble(), CoinsExtensions.fromProto(data.amount),
         payer: data.payer, granter: data.granter);
   }
 

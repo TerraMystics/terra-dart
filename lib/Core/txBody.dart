@@ -11,7 +11,7 @@ import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx
     as PROTO;
 
 class TxBody {
-  final List<TxBodyJSONMessages> messages;
+  List<TxBodyJSONMessages>? messages;
   final String memo;
   final double timeout_height;
 
@@ -32,12 +32,12 @@ class TxBody {
     proto.timeoutHeight = Int64(timeout_height.toInt());
 
     if (messages != null) {
-      proto.messages = messages.map((w) {
+      proto.messages.addAll(messages.map((w) {
         var any = Any();
         any.typeUrl = w.type_url;
         any.value = w.value;
         return any;
-      }).toList();
+      }).toList());
     }
 
     return proto;

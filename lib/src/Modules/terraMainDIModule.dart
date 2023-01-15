@@ -30,6 +30,7 @@ class TerraMainDIModule {
 
   static void _registerApiServices() {
     var http = TerraStartup.injector.get<TerraRestfulService>();
+    var treasury = TerraStartup.injector.get<TreasuryAPI>();
     TerraStartup.injector.registerSingleton<AuthAPI>(() => AuthAPI(http));
     TerraStartup.injector.registerSingleton<AuthzAPI>(() => AuthzAPI(http));
     TerraStartup.injector.registerSingleton<BankAPI>(() => BankAPI(http));
@@ -52,8 +53,8 @@ class TerraMainDIModule {
     TerraStartup.injector
         .registerSingleton<TendermintAPI>(() => TendermintAPI(http));
     TerraStartup.injector.registerSingleton<TxAPI>(() => TxAPI(http));
-    TerraStartup.injector
-        .registerSingleton<TxBroadcastAPI>(() => TxBroadcastAPI());
+    TerraStartup.injector.registerSingleton<TxBroadcastAPI>(
+        () => TxBroadcastAPI(http, treasury));
     TerraStartup.injector.registerSingleton<WasmAPI>(() => WasmAPI(http));
   }
 

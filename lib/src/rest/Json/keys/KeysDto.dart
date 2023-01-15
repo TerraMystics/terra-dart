@@ -9,11 +9,11 @@ part 'KeysDto.g.dart';
 
 @JsonSerializable()
 class KeysDto {
-  final String? typeUrl;
+  String? typeUrl;
 
-  final int? threshold;
-  final String? key;
-  final List<PublicKeys>? public_keys;
+  int? threshold;
+  String? key;
+  List<PublicKeys>? public_keys;
 
   KeysDto(this.typeUrl, this.threshold, this.key, this.public_keys);
 
@@ -28,6 +28,11 @@ class KeysDto {
         .writeToBuffer();
 
     return google;
+  }
+
+  static KeysDto unpackAny(Any key) {
+    return KeysDto(key.typeUrl, null,
+        TerraStringExtension.getStringFromBytes(key.value), null);
   }
 
   // /// Connect the generated [_$KeysDtoFromJson] function to the `fromJson`
