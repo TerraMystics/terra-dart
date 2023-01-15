@@ -8,14 +8,16 @@ part of 'TxContainerJSON.dart';
 
 TxContainerJSON _$TxContainerJSONFromJson(Map<String, dynamic> json) =>
     TxContainerJSON(
-      json['mode'] as String,
-      TxGasInfoResponse.fromJson(json['gas_info'] as Map<String, dynamic>),
-      json['tx_bytes'] as String,
-      TxValueJSON.fromJson(json['tx'] as Map<String, dynamic>),
-      (json['txs'] as List<dynamic>)
+      mode: json['mode'] as String,
+      gas_info:
+          TxGasInfoResponse.fromJson(json['gas_info'] as Map<String, dynamic>),
+      tx_bytes: json['tx_bytes'] as String,
+      tx: TxValueJSON.fromJson(json['tx'] as Map<String, dynamic>),
+      txs: (json['txs'] as List<dynamic>)
           .map((e) => TxValueJSON.fromJson(e as Map<String, dynamic>))
           .toList(),
-      TxResponse.fromJson(json['tx_response'] as Map<String, dynamic>),
+      tx_response:
+          TxResponse.fromJson(json['tx_response'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$TxContainerJSONToJson(TxContainerJSON instance) =>

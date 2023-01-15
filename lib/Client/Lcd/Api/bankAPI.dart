@@ -1,4 +1,3 @@
-
 import '../../../Core/Extensions/CoinExtensions.dart';
 import '../../../Core/coin.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';

@@ -13,9 +13,6 @@ Block _$BlockFromJson(Map<String, dynamic> json) => Block(
       (json['gas_wanted'] as num).toDouble(),
       (json['gas_used'] as num).toDouble(),
       json['data'] as String,
-      (json['logs'] as List<dynamic>)
-          .map((e) => TxLogDataArgs.fromJson(e as Map<String, dynamic>))
-          .toList(),
       json['timestamp'] as String,
       json['info'] as String,
     );
@@ -27,7 +24,6 @@ Map<String, dynamic> _$BlockToJson(Block instance) => <String, dynamic>{
       'gas_wanted': instance.gas_wanted,
       'gas_used': instance.gas_used,
       'data': instance.data,
-      'logs': instance.logs,
       'timestamp': instance.timestamp,
       'info': instance.info,
     };

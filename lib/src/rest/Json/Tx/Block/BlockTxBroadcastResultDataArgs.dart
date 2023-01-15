@@ -1,9 +1,8 @@
-import 'package:json_annotation/json_annotation.dart';+
+import 'package:json_annotation/json_annotation.dart';
 import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 
 import '../Transaction/TxResponse.dart';
 import 'Block.dart';
-import 'TxLogDataArgs.dart';
 
 part 'BlockTxBroadcastResultDataArgs.g.dart';
 
@@ -18,7 +17,7 @@ class BlockTxBroadcastResultDataArgs extends Block {
   final double gas_wanted;
   final double gas_used;
   final String data;
-  final List<TxLogDataArgs> logs;
+  //final List<TxLogDataArgs> logs;
   final String timestamp;
   final String info;
 
@@ -31,11 +30,11 @@ class BlockTxBroadcastResultDataArgs extends Block {
       this.gas_wanted,
       this.gas_used,
       this.data,
-      this.logs,
+      //  this.logs,
       this.timestamp,
       this.info)
-      : super(height, txhash, raw_log, gas_wanted, gas_used, data, logs,
-            timestamp, info);
+      : super(height, txhash, raw_log, gas_wanted, gas_used, data, timestamp,
+            info);
 
   static BlockTxBroadcastResultDataArgs fromJSON(TxResponse json) {
     return BlockTxBroadcastResultDataArgs(
@@ -47,7 +46,7 @@ class BlockTxBroadcastResultDataArgs extends Block {
         json.gas_wanted,
         json.gas_used,
         json.data,
-        json.logs.map((e) => TxLog.fromData(e)).toList(),
+        //  json.logs.map((e) => TxLog.fromData(e)).toList(),
         TerraStringExtension.getISOStringFromDate(json.timestamp),
         json.info);
   }

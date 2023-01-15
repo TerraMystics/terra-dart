@@ -1,10 +1,10 @@
 import 'package:injector/injector.dart';
+import 'package:terra_dart_sdk/src/Configuration/Environment/terraClientConfiguration.dart';
 import 'package:terra_dart_sdk/src/Modules/terraMainDIModule.dart';
 import 'Client/Lcd/LCDDefaultConfigs.dart';
 import 'Client/Lcd/LocalTerra/localTerra.dart';
 import 'Client/Lcd/Models/LCDClientConfig.dart';
 import 'Client/Lcd/lcdClient.dart';
-import 'src/Configuration/Environment/terraClientConfiguration.dart';
 import 'src/Constants/Classic/classicChainKeys.dart';
 import 'src/Constants/Classic/classicHttpResources.dart';
 import 'src/Constants/Http/httpBehaviourConstants.dart';
@@ -43,9 +43,8 @@ class TerraStartup {
   // }
 
   static void configureTerraEnvironment(TerraEnvironment environment) {
-    TerraClientConfiguration.lcdConfig = LCDClientConfig();
-    TerraClientConfiguration.lcdConfig!.gasAdjustment =
-        LCDDefaultConfigs.GAS_ADJUSTMENT;
+    TerraClientConfiguration.lcdConfig = LCDClientConfig()
+      ..gasAdjustment = LCDDefaultConfigs.GAS_ADJUSTMENT;
 
     switch (TerraClientConfiguration.terra = environment) {
       case TerraEnvironment.luna2MainNet:

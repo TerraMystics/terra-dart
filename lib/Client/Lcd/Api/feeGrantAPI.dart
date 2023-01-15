@@ -30,7 +30,7 @@ class FeeGrantAPI extends BaseAPI {
   // Future<PeriodicAllowance> getPeriodicAllowance(
   //     String walletGrantee, String walletGranter) async {
   //   String root =
-  //       "${TerraClientConfiguration.blockchainResourcePath}${CosmosBaseConstants.COSMOS_FEEGRANT_ALLOWANCE}/$walletGranter/$walletGrantee";
+  //       "${blockchainResourcePath}${CosmosBaseConstants.COSMOS_FEEGRANT_ALLOWANCE}/$walletGranter/$walletGrantee";
 
   //   var response =
   //       await apiRequester.getAsync<FeeGrantAllowancesContainer>(root);

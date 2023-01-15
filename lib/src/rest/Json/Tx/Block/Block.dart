@@ -12,12 +12,12 @@ class Block {
   final double gas_wanted;
   final double gas_used;
   final String data;
-  final List<TxLogDataArgs> logs;
+  // final List<TxLogDataArgs> logs;
   final String timestamp;
   final String info;
 
   Block(this.height, this.txhash, this.raw_log, this.gas_wanted, this.gas_used,
-      this.data, this.logs, this.timestamp, this.info);
+      this.data, this.timestamp, this.info);
 
   // /// Connect the generated [_$AccountDtoFromJson] function to the `fromJson`
   // /// factory.

@@ -12,7 +12,7 @@ import '../../../Core/Constants/CoinDenoms.dart';
 import '../../../Core/authInfo.dart';
 import '../../../Core/fee.dart';
 import '../../../Core/txBody.dart';
-import '../../../src/Configuration/Environment/TerraClientConfiguration.dart';
+import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/Tx/Block/BlockTxBroadcastResultDataArgs.dart';
 import '../../../src/rest/Json/Tx/Block/CreateTxOptions.dart';

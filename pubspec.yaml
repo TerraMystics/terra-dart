@@ -37,7 +37,7 @@ dependencies:
   json_annotation: ^4.7.0
   random_string_generator: ^2.0.0
   pointycastle: ^3.6.2
-  terra_dart_keys: ^1.0.7
+  terra_dart_keys: ^1.1.0
   terra_dart_sdk_extensions: ^1.0.5
   terra_dart_sdk_protos: ^1.0.2
 

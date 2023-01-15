@@ -9,13 +9,15 @@ part of 'TxUploadContainerJSON.dart';
 TxUploadContainerJSON _$TxUploadContainerJSONFromJson(
         Map<String, dynamic> json) =>
     TxUploadContainerJSON(
-      TxValueJSON.fromJson(json['tx'] as Map<String, dynamic>),
-      json['tx_bytes'] as String,
-      (json['tax_amount'] as List<dynamic>)
+      tx: TxValueJSON.fromJson(json['tx'] as Map<String, dynamic>),
+      tx_bytes: json['tx_bytes'] as String,
+      tax_amount: (json['tax_amount'] as List<dynamic>)
           .map((e) => CoinJSON.fromJson(e as Map<String, dynamic>))
           .toList(),
-      TxGasInfoResponse.fromJson(json['gas_info'] as Map<String, dynamic>),
-      TxResponse.fromJson(json['tx_response'] as Map<String, dynamic>),
+      gas_info:
+          TxGasInfoResponse.fromJson(json['gas_info'] as Map<String, dynamic>),
+      tx_response:
+          TxResponse.fromJson(json['tx_response'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$TxUploadContainerJSONToJson(

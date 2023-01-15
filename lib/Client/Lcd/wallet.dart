@@ -9,7 +9,7 @@ import '../../Core/Constants/CoinDenoms.dart';
 import '../../Core/authInfo.dart';
 import '../../Core/fee.dart';
 import '../../Core/txBody.dart';
-import '../../src/Configuration/Environment/TerraClientConfiguration.dart';
+import '../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../src/rest/Json/Tx/Block/CreateTxOptions.dart';
 import 'Api/txBroadcastApi.dart';
 import 'lcdClient.dart';
@@ -21,9 +21,9 @@ class Wallet {
   final LcdClient _lcd;
   final TxMnemonic key;
   final String accAddress;
-  final TxBroadcastAPI _broadcastTx;
+  final TxBroadcastAPI broadcastTx;
 
-  Wallet(this._lcd, this.accAddress, this._broadcastTx, this.key);
+  Wallet(this._lcd, this.accAddress, this.broadcastTx, this.key);
 
   Future<Map<double, double>> getAccountNumberAndSequence() async {
     var walletInfo = await _lcd.auth.getAccountInfoWalletAddress(accAddress);
@@ -44,6 +44,7 @@ class Wallet {
   }
 
   Future<SignerOptions> getWalletOptions() async {
+    print("VAL: ${TerraClientConfiguration.lcdConfig}");
     var signer = SignerOptions()
       ..signMode = SignMode.SIGN_MODE_DIRECT
       ..chainId = TerraClientConfiguration.lcdConfig!.chainID
@@ -57,9 +58,7 @@ class Wallet {
       {String optionalNote = ""}) async {
     var walletOptions = await getWalletOptions();
 
-    return {
-      await _broadcastTx.createTx(fee, memo: optionalNote): walletOptions
-    };
+    return {await broadcastTx.createTx(fee, memo: optionalNote): walletOptions};
   }
 
   /// <summary>
@@ -82,7 +81,7 @@ class Wallet {
         walletOptions,
         messages);
 
-    return await _broadcastTx.estimateGas(signedTx, gasAdjustment, messages);
+    return await broadcastTx.estimateGas(signedTx, gasAdjustment, messages);
   }
 
   /// <summary>
@@ -92,7 +91,7 @@ class Wallet {
   /// <param name="options"></param>
   /// <returns></returns>
   Future<Fee> estimateFeeForTx(double txAmount, CreateTxOptions options) async {
-    return await _broadcastTx.estimatedFeeWithBurnTax(txAmount, options);
+    return await broadcastTx.estimatedFeeWithBurnTax(txAmount, options);
   }
 
   /// <summary>
