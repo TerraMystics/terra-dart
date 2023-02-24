@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Staking/Delegation.dart';
 import '../../../Core/Staking/UnbondingDelegation.dart';
 import '../../../Core/Staking/Validator.dart';
@@ -10,7 +12,6 @@ import '../../../src/rest/Json/Staking/StakingApiParams.dart';
 import '../../../src/rest/Json/Staking/StakingCommonJson.dart';
 import '../../../src/rest/Json/Staking/StakingPoolJSON.dart';
 import '../../../src/rest/Json/Staking/ValidatorDataArgsJSONContainer.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'Helpers/Staking/DelegationHelper.dart';
 import 'Helpers/Staking/UnbondingDelegationHelper.dart';
 import 'baseAPI.dart';

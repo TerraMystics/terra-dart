@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/IBC/Msgs/Client/ClientConsensusStates.dart';
 import '../../../Core/IBC/Msgs/Client/ConsensusStateWithHeight.dart';
 import '../../../Core/IBC/Msgs/Client/IdentifiedClient.dart';
@@ -6,7 +8,6 @@ import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/IBC/CommonIBCParamsJson.dart';
 import '../../../src/rest/Json/IBC/IBCApiClientStates.dart';
 import '../../../src/rest/Json/IBC/IBCApiClientStatus.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class IBCAPI extends BaseAPI {

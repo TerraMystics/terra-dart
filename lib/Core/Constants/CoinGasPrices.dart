@@ -5,54 +5,54 @@ class CoinGasPrices {
   static double getGasPriceForDenom(String denom, DenomGasPrices gas) {
     switch (denom) {
       case CoinDenoms.UUSD:
-        return gas.uusd;
+        return double.parse(gas.uusd!);
       case CoinDenoms.ULUNA:
-        return gas.uluna;
+        return double.parse(gas.uluna!);
       case CoinDenoms.UIDR:
-        return gas.uidr;
+        return double.parse(gas.uidr!);
       case CoinDenoms.UKRW:
-        return gas.ukrw;
+        return double.parse(gas.ukrw!);
       case CoinDenoms.UMNT:
-        return gas.umnt;
+        return double.parse(gas.umnt!);
       case CoinDenoms.UPHP:
-        return gas.uphp;
+        return double.parse(gas.uphp!);
       case CoinDenoms.USDR:
-        return gas.usdr;
+        return double.parse(gas.usdr!);
       case CoinDenoms.UEUR:
-        return gas.ueur;
+        return double.parse(gas.ueur!);
       case CoinDenoms.UCNY:
-        return gas.ucny;
+        return double.parse(gas.ucny!);
       case CoinDenoms.UJPY:
-        return gas.ujpy;
+        return double.parse(gas.ujpy!);
       case CoinDenoms.UGBP:
-        return gas.ugpb;
+        return double.parse(gas.ugpb!);
       case CoinDenoms.UINR:
-        return gas.uinr;
+        return double.parse(gas.uinr!);
       case CoinDenoms.UCHF:
-        return gas.uchf;
+        return double.parse(gas.uchf!);
       case CoinDenoms.UCAD:
-        return gas.ucad;
+        return double.parse(gas.ucad!);
       case CoinDenoms.UAUD:
-        return gas.uaud;
+        return double.parse(gas.uaud!);
       case CoinDenoms.USGD:
-        return gas.usgd;
+        return double.parse(gas.usgd!);
       case CoinDenoms.UTHB:
-        return gas.uthb;
+        return double.parse(gas.uthb!);
       case CoinDenoms.USEK:
-        return gas.usek;
+        return double.parse(gas.usek!);
       case CoinDenoms.UNOK:
-        return gas.unok;
+        return double.parse(gas.unok!);
       case CoinDenoms.UDKK:
-        return gas.udkk;
+        return double.parse(gas.udkk!);
       case CoinDenoms.UHKD:
-        return gas.uhkd;
+        return double.parse(gas.uhkd!);
       case CoinDenoms.UMYR:
-        return gas.umyr;
+        return double.parse(gas.umyr!);
       case CoinDenoms.UTWD:
-        return gas.utwd;
+        return double.parse(gas.utwd!);
     }
 
     throw Exception(
-        "Could not find a gas price for the specified Denom $denom");
+        "Could not find a gas price for the specified Denom $denom"!);
   }
 }

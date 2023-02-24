@@ -1,5 +1,7 @@
 import 'dart:ffi';
 
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Constants/CoinDenoms.dart';
 import '../../../Core/FeeGrant/Allowances/BasicAllowance.dart';
 import '../../../Core/coin.dart';
@@ -7,7 +9,6 @@ import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/FeeGrant/FeeGrantAllowancesContainer.dart';
 import '../../../src/rest/Json/FeeGrant/FeeGrantAllowancesJson.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class FeeGrantAPI extends BaseAPI {

@@ -1,11 +1,11 @@
 import 'package:terra_dart_sdk_extensions/extensions/hash/hashExtensions.dart';
+import 'package:terra_rest/terra_rest.dart';
 
 import '../../../TerraStartup.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/Tx/Transaction/TxContainerJSON.dart';
 import '../../../src/rest/Json/Tx/Transaction/TxResponse.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class TxAPI extends BaseAPI {

@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/coin.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
@@ -7,7 +9,6 @@ import '../../../src/rest/Json/Distribution/DistributionInfoApiJson.dart';
 import '../../../src/rest/Json/Distribution/DistributionParamsInfoJson.dart';
 import '../../../src/rest/Json/Distribution/DistributionRewardsInfoJson.dart';
 import '../../../src/rest/Json/Distribution/DistributionWithDrawInfoJson.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'Args/Distribution/Rewards.dart';
 import 'baseAPI.dart';
 

@@ -1,13 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:terra_dart_sdk/Core/signerInfo.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/signing/v1beta1/signing.pbenum.dart';
 
 import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
     as PROTO;
 import 'package:terra_dart_sdk_protos/proto_out/third_party/google/protobuf/any/any.pb.dart';
 import '../src/rest/Json/Tx/Block/SignerData.dart';
 import '../src/rest/Json/Tx/Transaction/TxValueJSON.dart';
-import '../src/rest/Json/enums/SignMode.dart';
 import '../src/rest/converters/jsonMessageBodyConverter.dart';
 import 'Constants/TxConstants.dart';
 import 'authInfo.dart';
@@ -26,11 +26,6 @@ class Tx {
   static Tx fromData(TxDataArgs data) {
     return Tx(TxBody.fromData(data.body!), AuthInfo.fromData(data.auth_info!),
         data.signatures!);
-  }
-
-  static Tx fromJSON(TxValueJSON data) {
-    return Tx(TxBody.fromJSON(data.body), AuthInfo.fromJSON(data.auth_info),
-        data.signatures);
   }
 
   Uint8List toProto(List<dynamic> msgs) {
@@ -79,15 +74,16 @@ class Tx {
           signerInfo = SignerInfo(
               signer.publicKey!,
               signer.sequenceNumber!,
-              ModeInfo(SignatureV2Single(SignMode.SignModeDirect,
+              ModeInfo(SignatureV2Single(
+                  mode: SignMode.SIGN_MODE_DIRECT,
                   signature: signer.publicKey!.key ?? "")));
         }
       } else {
         signerInfo = SignerInfo(
             signer.publicKey!,
             signer.sequenceNumber!,
-            ModeInfo(
-                SignatureV2Single(SignMode.SignModeDirect, signature: "")));
+            ModeInfo(SignatureV2Single(
+                mode: SignMode.SIGN_MODE_DIRECT, signature: "")));
       }
 
       if (signerInfo == null) {

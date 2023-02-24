@@ -2,9 +2,9 @@ import 'package:terra_dart_keys/keys/constants/cosmosKeys.dart';
 import 'package:terra_dart_keys/mnemonicKey.dart';
 import 'package:terra_dart_sdk/Core/tx.dart';
 import 'package:terra_dart_sdk/src/rest/Json/Tx/Block/SignerOptions.dart';
-import 'package:terra_dart_sdk/src/rest/Json/enums/SignMode.dart';
 import 'package:terra_dart_sdk/src/rest/Json/keys/KeysDto.dart';
 import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
+import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/signing/v1beta1/signing.pb.dart';
 
 import '../../src/rest/converters/jsonMessageBodyConverter.dart';
 import '../modeInfo.dart';
@@ -21,23 +21,25 @@ class TxMnemonic extends MnemonicKey {
 
   Future<SignatureV2> createSignature(
       CORE_SIGN.SignDoc tx, List<dynamic> messages) async {
-    var keyDto =
-        KeysDto(CosmosKeys.SECP256K1_SIMP_PUBKEY, 0, publicKey!.key, null);
+    var keyDto = KeysDto(CosmosKeys.SECP256K1_SIMP_PUBKEY, 0,
+        publicKey!.getPublicKeyAsBase64(), null);
     var copyTx = tx;
     copyTx.auth_info.signer_infos = [
       SignerInfo(keyDto, copyTx.sequence,
-          ModeInfo(SignatureV2Single(SignMode.SignModeDirect)))
+          ModeInfo(SignatureV2Single(mode: SignMode.SIGN_MODE_DIRECT)))
     ];
     var dataToEncode = copyTx.toProto(
         messages: messages
             .map((w) => JSONMessageBodyConverter.getJsonFromBody(w))
             .toList());
-    var sigBytes = TerraStringExtension.getStringFromBytes(sign(dataToEncode));
+
+    var signature = sign(dataToEncode);
+    var sigBytes = TerraStringExtension.getBase64FromBytes(signature);
 
     return SignatureV2(
         keyDto,
-        SignatureV2Descriptor(
-            SignatureV2Single(SignMode.SignModeDirect, signature: sigBytes)),
+        SignatureV2Descriptor(SignatureV2Single(
+            mode: SignMode.SIGN_MODE_DIRECT, signature: sigBytes)),
         tx.sequence);
   }
 

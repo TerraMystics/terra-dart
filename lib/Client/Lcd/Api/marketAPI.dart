@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/coin.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
@@ -5,7 +7,6 @@ import '../../../src/rest/Json/Marketing/MarketingApiPoolDelta.dart';
 import '../../../src/rest/Json/Marketing/MarketingParamsApi.dart';
 import '../../../src/rest/Json/Marketing/MarketingParamsValueApi.dart';
 import '../../../src/rest/Json/Marketing/MarketingSwaps.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class MarketAPI extends BaseAPI {

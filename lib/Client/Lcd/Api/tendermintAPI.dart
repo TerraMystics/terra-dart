@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/Tendermint/Blocks/BlockContainer.dart';
@@ -5,7 +7,6 @@ import '../../../src/rest/Json/Tendermint/Core/NodeInfoCommonJSON.dart';
 import '../../../src/rest/Json/Tendermint/Core/SyncingJson.dart';
 import '../../../src/rest/Json/Tendermint/Core/TendermintAPICommonJSON.dart';
 import '../../../src/rest/Json/Tendermint/Core/TendermintValidators.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class TendermintAPI extends BaseAPI {

@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Constants/CoinDenoms.dart';
 import '../../../Core/Constants/CoinGasPrices.dart';
 import '../../../Core/coin.dart';
@@ -9,7 +11,6 @@ import '../../../src/rest/Json/Treasury/TreasuryRewardWeight.dart';
 import '../../../src/rest/Json/Treasury/TreasuryTaxCap.dart';
 import '../../../src/rest/Json/Treasury/TreasuryTaxPolicy.dart';
 import '../../../src/rest/Json/Treasury/TreasuryTaxSeignorage.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class TreasuryAPI extends BaseAPI {

@@ -1,10 +1,11 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/Mint/MintApiAnnualProvisionsArgs.dart';
 import '../../../src/rest/Json/Mint/MintApiInflationArgs.dart';
 import '../../../src/rest/Json/Mint/MintParamsApi.dart';
 import '../../../src/rest/Json/Mint/MintParamsApiValueApi.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class MintAPI extends BaseAPI {

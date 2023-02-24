@@ -1,12 +1,14 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:proto_annotations/proto_annotations.dart';
 import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/service.pbenum.dart';
 import 'package:terra_dart_sdk/Core/coin.dart';
 import 'package:terra_dart_sdk/Core/tx.dart' as Core;
 import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx.pb.dart'
     as PROTO;
+import 'package:terra_rest/terra_rest.dart';
 
 import '../../../Core/Constants/CoinDenoms.dart';
 import '../../../Core/authInfo.dart';
@@ -21,7 +23,6 @@ import '../../../src/rest/Json/Tx/Transaction/TxResponse.dart';
 import '../../../src/rest/Json/Tx/Transaction/Upload/TxUploadContainerJSON.dart';
 
 import '../../../src/rest/converters/broadcastModeConverter.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 import 'treasuryAPI.dart';
 
@@ -80,9 +81,12 @@ class TxBroadcastAPI extends BaseAPI {
         "${TerraClientConfiguration.blockchainResourcePath}${CosmosBaseConstants.COSMOS_TX_ESTIMATE_GAS_USAGE}";
 
     var dataEncoded = simTx.toProtoWithType(messages);
+
+    print(dataEncoded);
+
     String data = encode(dataEncoded);
     var response = await apiRequester.postAsync(
-        rootPath, TxUploadContainerJSON(tx_bytes: data));
+        rootPath, json.encode(TxUploadContainerJSON(tx_bytes: data).toJson()));
 
     if (response.successful!) {
       var result = TxUploadContainerJSON.fromJson(response.result!);
@@ -103,7 +107,8 @@ class TxBroadcastAPI extends BaseAPI {
     var data = encode(tx);
     var container = TxContainerJSON(
         mode: BroadcastModeConverter.getFromEnum(mode), tx_bytes: data);
-    var response = await apiRequester.postAsync(rootPath, container);
+    var response =
+        await apiRequester.postAsync(rootPath, json.encode(container.toJson()));
 
     if (response.successful!) {
       var result = TxUploadContainerJSON.fromJson(response.result!);

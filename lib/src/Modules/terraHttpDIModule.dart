@@ -1,7 +1,6 @@
+import 'package:terra_rest/terra_rest.dart';
 
 import '../../TerraStartup.dart';
-import '../rest/services/terraHttpClientHandler.dart';
-import '../rest/services/terraRestfulService.dart';
 
 class TerraHttpDIModule {
   static void load() {

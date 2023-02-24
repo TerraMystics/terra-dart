@@ -1,6 +1,7 @@
 import 'package:injector/injector.dart';
 import 'package:terra_dart_sdk/src/Configuration/Environment/terraClientConfiguration.dart';
 import 'package:terra_dart_sdk/src/Modules/terraMainDIModule.dart';
+import 'package:terra_rest/services/terraRestfulService.dart';
 import 'Client/Lcd/LCDDefaultConfigs.dart';
 import 'Client/Lcd/LocalTerra/localTerra.dart';
 import 'Client/Lcd/Models/LCDClientConfig.dart';
@@ -38,9 +39,9 @@ class TerraStartup {
     return injector.get<LocalTerra>();
   }
 
-  // static TerraRestfulService GetHttpHandler() {
-  //   return Kernel.Get<TerraRestfulService>();
-  // }
+  static TerraRestfulService getHttpHandler() {
+    return injector.get<TerraRestfulService>();
+  }
 
   static void configureTerraEnvironment(TerraEnvironment environment) {
     TerraClientConfiguration.lcdConfig = LCDClientConfig()

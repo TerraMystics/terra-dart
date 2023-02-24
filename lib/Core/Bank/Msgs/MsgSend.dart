@@ -47,6 +47,7 @@ class MsgSend extends SignerData {
     var msg = PROTO.MsgSend();
     msg.fromAddress = from_address;
     msg.toAddress = to_address;
+    msg.amount.addAll(CoinsExtensions.toProto(amount));
     return msg;
   }
 

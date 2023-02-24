@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Extensions/CoinExtensions.dart';
 import '../../../Core/coin.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
@@ -7,7 +9,6 @@ import '../../../src/rest/Json/Oracle/OracleApiExchangeRateActivesApi.dart';
 import '../../../src/rest/Json/Oracle/OracleApiExchangeRateApi.dart';
 import '../../../src/rest/Json/Oracle/OracleApiExchangeRatesApi.dart';
 import '../../../src/rest/Json/Oracle/OracleApiValidatorApi.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class OracleAPI extends BaseAPI {

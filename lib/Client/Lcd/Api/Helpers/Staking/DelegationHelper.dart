@@ -1,10 +1,11 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../../../src/Constants/lcd/cosmosStakingConstants.dart';
 import '../../../../../src/rest/Json/PaginationOptions.dart';
 import '../../../../../src/rest/Json/Staking/StakingCommonJson.dart';
 import '../../../../../src/rest/Json/Staking/StakingDelegationResponse.dart';
-import '../../../../../src/rest/services/terraRestfulService.dart';
 
 class DelegationHelper {
   static Future<List<StakingDelegationResponse>>

@@ -1,9 +1,10 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/Slashing/SlashingApiCommonApi.dart';
 import '../../../src/rest/Json/Slashing/SlashingApiSigningInfo.dart';
 import '../../../src/rest/Json/Slashing/SlashingApiSigningInfoParams.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class SlashingAPI extends BaseAPI {

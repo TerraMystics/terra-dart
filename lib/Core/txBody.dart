@@ -11,7 +11,7 @@ import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/tx/v1beta1/tx
     as PROTO;
 
 class TxBody {
-  List<TxBodyJSONMessages>? messages;
+  List<Any>? messages;
   final String memo;
   final double timeout_height;
 
@@ -19,10 +19,6 @@ class TxBody {
 
   static TxBody fromData(TxBodyDataArgs data) {
     return TxBody(data.messages!, data.memo!, data.timeout_Height!);
-  }
-
-  static TxBody fromJSON(TxBodyJSON data) {
-    return TxBody(data.messages, data.memo, double.parse(data.timeout_height));
   }
 
   PROTO.TxBody toProtoWithType({List<TxUploadMessageData>? messages}) {
@@ -60,7 +56,7 @@ class TxBody {
 }
 
 class TxBodyDataArgs {
-  List<TxBodyJSONMessages>? messages;
+  List<Any>? messages;
   String? memo;
   double? timeout_Height;
 }

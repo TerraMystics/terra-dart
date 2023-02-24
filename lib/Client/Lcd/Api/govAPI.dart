@@ -1,3 +1,5 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Gov/Proposal.dart';
 import '../../../Core/Gov/ProposalsDepositParams.dart';
 import '../../../Core/Gov/ProposalsTallyParams.dart';
@@ -10,7 +12,6 @@ import '../../../src/rest/Json/Gov/Proposals/ProposalsResponseContainerJSON.dart
 import '../../../src/rest/Json/Gov/Proposals/ProposalsResponseContainerValueJSON.dart';
 import '../../../src/rest/Json/Gov/Proposals/ProposalsResponseJSON.dart';
 import '../../../src/rest/Json/enums/ProposalStatus.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class GovAPI extends BaseAPI {

@@ -44,10 +44,10 @@ class Wallet {
   }
 
   Future<SignerOptions> getWalletOptions() async {
-    print("VAL: ${TerraClientConfiguration.lcdConfig}");
     var signer = SignerOptions()
       ..signMode = SignMode.SIGN_MODE_DIRECT
       ..chainId = TerraClientConfiguration.lcdConfig!.chainID
+      ..address = accAddress
       ..accountNumber = (await getAccountNumber()).toDouble()
       ..sequenceNumber = (await getSequence()).toDouble();
 
@@ -73,11 +73,17 @@ class Wallet {
       {double gasAdjustment = 3,
       String coinTypeForGas = CoinDenoms.ULUNA}) async {
     var walletOptions = await getWalletOptions();
+
     var gasLimit = await _lcd.treasury.getGasPriceForDenom(coinTypeForGas);
 
     var signedTx = await key.signTx(
-        Core.Tx(TxBody(null, "Running Gas Estimation", 0),
-            AuthInfo([], Fee(gasLimit, [Coin(coinTypeForGas, txAmount)])), []),
+        Core.Tx(
+            TxBody(null, "Running Gas Estimation", 0),
+            AuthInfo(
+                [],
+                Fee(gasLimit, [Coin(coinTypeForGas, txAmount)],
+                    granter: accAddress)),
+            []),
         walletOptions,
         messages);
 

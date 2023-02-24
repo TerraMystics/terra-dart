@@ -9,10 +9,10 @@ class SignatureV2Single {
   SignMode? mode;
   String? signature;
 
-  SignatureV2Single(mode, {String signature = ""});
+  SignatureV2Single({this.mode, this.signature});
 
   static SignatureV2Single fromData(SingleDataArgs data) {
-    return SignatureV2Single(data.mode, signature: data.signature ?? "");
+    return SignatureV2Single(mode: data.mode, signature: data.signature ?? "");
   }
 
   SingleDataArgs toData() {
@@ -28,7 +28,7 @@ class SignatureV2Single {
 
   PROTO.ModeInfo_Single toProtoWithType() {
     var cmode = PROTO.ModeInfo_Single();
-    cmode.mode = mode!;
+    // cmode.mode = mode!;
 
     return cmode;
   }

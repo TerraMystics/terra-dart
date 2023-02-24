@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:terra_dart_sdk_extensions/extensions/strings/terraStringExtensions.dart';
 import 'package:terra_dart_sdk_protos/proto_out/third_party/cosmos/crypto/secp256k1/keys.pb.dart';
@@ -22,12 +24,10 @@ class KeysDto {
   }
 
   Any packAny(String key) {
-    var google = Any();
-    google.typeUrl = typeUrl!;
-    google.value = PubKey(key: TerraStringExtension.getBytesFromBase64(key))
-        .writeToBuffer();
-
-    return google;
+    return Any()
+      ..typeUrl = typeUrl!
+      ..value = PubKey(key: TerraStringExtension.getBytesFromBase64(key))
+          .writeToBuffer();
   }
 
   static KeysDto unpackAny(Any key) {

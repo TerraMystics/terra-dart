@@ -19,8 +19,8 @@ class SignatureV2Descriptor {
     if (single != null) {
       var sigData = single;
       return ModeSignature(
-          ModeInfo(SignatureV2Single(sigData!.mode,
-              signature: sigData.signature ?? "")),
+          ModeInfo(SignatureV2Single(
+              mode: sigData!.mode, signature: sigData.signature ?? "")),
           sigData.signature);
     }
 

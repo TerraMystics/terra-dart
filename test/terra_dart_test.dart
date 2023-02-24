@@ -33,18 +33,19 @@ void main() {
       //// Define your wallet -- The account that will handle the transactions
       var wallet = TerraStartup.getLCDClient().createWallet(mnemonic);
 
+      print("ACC ADDRESS: ${wallet.accAddress}");
       var send =
           MsgSend(wallet.accAddress, rAddr, [Coin(CoinDenoms.ULUNA, 20)]);
 
       var msgs = <dynamic>[send];
 
-      var gas = await wallet.estimateGasForTx(10000000, msgs);
+      var gas = await wallet.estimateGasForTx(1000, msgs);
 
       var txOptions = CreateTxOptions()
         ..gas = gas
         ..feeDenom = CoinDenoms.ULUNA
         ..gasAdjustment = 3;
-      var feeEstimate = await wallet.estimateFeeForTx(10000000, txOptions);
+      var feeEstimate = await wallet.estimateFeeForTx(1000, txOptions);
 
       var txAfterGas = await wallet.createTxAndSignTx(feeEstimate, msgs);
 

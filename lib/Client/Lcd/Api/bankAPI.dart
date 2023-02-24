@@ -1,9 +1,10 @@
+import 'package:terra_rest/terra_rest.dart';
+
 import '../../../Core/Extensions/CoinExtensions.dart';
 import '../../../Core/coin.dart';
 import '../../../src/Configuration/Environment/terraClientConfiguration.dart';
 import '../../../src/Constants/lcd/cosmosBaseConstants.dart';
 import '../../../src/rest/Json/bank/BankInfoApiJson.dart';
-import '../../../src/rest/services/terraRestfulService.dart';
 import 'baseAPI.dart';
 
 class BankAPI extends BaseAPI {

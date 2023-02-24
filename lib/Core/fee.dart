@@ -17,7 +17,7 @@ class Fee {
   String? payer;
   String? granter;
 
-  Fee(this.gas_limit, this.amount, {String? payer = "", String? granter = ""});
+  Fee(this.gas_limit, this.amount, {this.payer = "", this.granter = ""});
 
   FeeAminoArgs toAmino() {
     var amino = FeeAminoArgs();
@@ -46,6 +46,7 @@ class Fee {
     fee.gasLimit = Int64(gas_limit.toInt());
     fee.granter = granter ?? "";
     fee.payer = payer ?? "";
+    fee.amount.addAll(CoinsExtensions.toProto(amount));
 
     return fee;
   }

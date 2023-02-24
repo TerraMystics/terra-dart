@@ -1,4 +1,5 @@
 import 'package:terra_dart_sdk/Client/Lcd/Api/slashingAPI.dart';
+import 'package:terra_rest/terra_rest.dart';
 
 import '../../Client/Lcd/Api/authAPI.dart';
 import '../../Client/Lcd/Api/authzAPI.dart';
@@ -20,7 +21,6 @@ import '../../Client/Lcd/Api/wasmAPI.dart';
 import '../../Client/Lcd/LocalTerra/localTerra.dart';
 import '../../Client/Lcd/lcdClient.dart';
 import '../../TerraStartup.dart';
-import '../rest/services/terraRestfulService.dart';
 
 class TerraMainDIModule {
   static void load() {
